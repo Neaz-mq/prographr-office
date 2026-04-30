@@ -108,20 +108,24 @@ export default function PortfolioSection() {
   }, []);
 
   useEffect(() => {
+    const el = headingRef.current;
+    if (!el) return;
+
+    // Set hidden state immediately — before first paint — so there's no flash
+    gsap.set(el, { y: 60, opacity: 0, willChange: "transform, opacity" });
+
     const ctx = gsap.context(() => {
-      gsap.fromTo(headingRef.current,
-        { y: 100, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: headingRef.current,
-            start: "top 90%",
-          },
-        }
-      );
+      gsap.to(el, {
+        y: 0,
+        opacity: 1,
+        duration: 1.4,
+        ease: "expo.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 88%",
+        },
+        onComplete: () => gsap.set(el, { willChange: "auto" }),
+      });
     }, containerRef);
     return () => ctx.revert();
   }, []);

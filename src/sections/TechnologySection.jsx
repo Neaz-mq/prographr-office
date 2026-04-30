@@ -13,7 +13,6 @@ const SERVICES = [
     tags: ["UI UX Design", "UX Research", "Wireframing", "Prototyping"],
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1775296357/Untitled-1_vqxzaf.webp",
-    grayscale: false,
   },
   {
     id: 2,
@@ -23,7 +22,6 @@ const SERVICES = [
     tags: ["Logo Design", "Visual Identity", "Typography", "Brand Strategy"],
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1775296495/2_hukfxw.webp",
-    grayscale: true,
   },
   {
     id: 3,
@@ -33,7 +31,6 @@ const SERVICES = [
     tags: ["Frontend", "Backend", "MERN", "E-Commerce"],
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1775296526/3_dugife.webp",
-    grayscale: true,
   },
   {
     id: 4,
@@ -43,7 +40,6 @@ const SERVICES = [
     tags: ["Custom CRM", "API Integration", "SaaS", "Cloud Solutions"],
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1775296564/4_ff0soq.webp",
-    grayscale: true,
   },
 ];
 
@@ -57,13 +53,12 @@ function CardInner({ service }) {
         alt={service.title}
         className="absolute inset-0 w-full h-full object-cover object-center"
         draggable="false"
-        style={{ filter: service.grayscale ? "grayscale(1)" : "none" }} // ✅
       />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to top right, rgba(5,5,5,0.85) 0%, rgba(5,5,5,0.50) 60%, rgba(5,5,5,0.25) 100%)",
+            "linear-gradient(to right, rgba(5,5,5,0.97) 0%, rgba(5,5,5,0.90) 25%, rgba(5,5,5,0.60) 52%, rgba(5,5,5,0.12) 78%, rgba(5,5,5,0.00) 100%)",
         }}
       />
       <div className="absolute inset-0 flex flex-col px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-32">
@@ -83,7 +78,17 @@ function CardInner({ service }) {
               {service.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="bg-white text-black font-bold px-[9px] py-[6px] sm:px-[11px] sm:py-[7px] lg:px-[13px] lg:py-[8px] text-[clamp(7px,2vw,9px)] sm:text-[clamp(8px,1.2vw,11px)] lg:text-[clamp(9px,0.82vw,12px)] 3xl:text-[clamp(12px,2vw,14px)]"
+                  className="
+                    text-white font-medium
+                    whitespace-nowrap
+                    px-3 py-1.5
+                    rounded-full
+                    border border-white/30
+                    bg-white/10
+                    backdrop-blur-md
+                    shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(0,0,0,0.18)]
+                    text-[clamp(7px,2vw,9px)] sm:text-[clamp(8px,1.2vw,11px)] lg:text-[clamp(9px,0.82vw,12px)] 3xl:text-[clamp(12px,2vw,14px)]
+                  "
                 >
                   {tag}
                 </span>
