@@ -134,7 +134,7 @@ export default function TechnologySection() {
       className="w-full bg-white relative 3xl:pb-32 2xl:pb-32 xl:pb-6"
     >
       {/* HEADING SECTION */}
-      <div className="md:px-10 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-14 mx-auto px-6 pt-8 lg:pt-4 pb-10 lg:pb-14 overflow-hidden relative z-10 bg-white">
+      <div className="md:px-10 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-14 mx-auto px-6 pt-8 lg:pt-4 pb-10 lg:pb-14 overflow-hidden relative z-10 bg-white">
         <div className="overflow-hidden">
           <h2
             ref={headingRef}
@@ -149,7 +149,7 @@ export default function TechnologySection() {
 
       {/* STICKY STACK — all screen sizes */}
       <div className="w-full">
-        <div className="3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] md:px-10 sm:px-6 px-4 mx-auto">
+        <div className="3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] md:px-10 sm:px-6 px-4 mx-auto">
           {SERVICES.map((service, i) => (
             <div
               key={service.id}

@@ -221,7 +221,7 @@ export default function AboutSection() {
       {/* Heading row */}
       <div
         ref={headingRef}
-        className="w-full shrink-0 px-3 md:px-[2.5rem] 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] 3xl:pt-6 2xl:pt-16 xl:pt-16 lg:pt-16 3xl:pb-32 2xl:pb-20 xl:pb-16 lg:pb-16 pb-5"
+        className="w-full shrink-0 px-3 md:px-[2.5rem] 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] 3xl:pt-6 2xl:pt-16 xl:pt-16 lg:pt-16 3xl:pb-32 2xl:pb-20 xl:pb-16 lg:pb-16 pb-5"
       >
         <div className="flex items-end 3xl:gap-12 2xl:gap-10 xl:gap-8 lg:gap-6">
           <div className="shrink-0 self-start 3xl:w-[500px] 2xl:w-[380px] xl:w-[250px] lg:w-[230px] ">
@@ -245,7 +245,7 @@ export default function AboutSection() {
       </div>
 
       {/* Cards row — two equal cards side by side */}
-      <div className="w-full max-w-full px-3 md:px-[2.5rem] 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] pb-16 flex gap-6 items-stretch overflow-hidden">
+      <div className="w-full max-w-full px-3 md:px-[2.5rem] 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] pb-16 flex gap-6 items-stretch overflow-hidden">
         {/* Card 1 — Stats */}
         <div
           className="flex-1 min-w-0 flex flex-col justify-between min-h-0

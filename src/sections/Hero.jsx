@@ -16,8 +16,8 @@ const services = [
   "and many more",
 ];
 
-const PILL_WIDTH = 170;
-const CIRCLE_SIZE = 46;
+const PILL_WIDTH = 200;
+const CIRCLE_SIZE = 50;
 
 const pillTransition = (expanded) => ({
   width: {
@@ -94,10 +94,10 @@ export default function Hero() {
         {/* Badge */}
         <motion.div {...fadeUp(0)} className="mb-8">
           <div className="inline-flex items-center gap-2 px-4 py-[6px]">
-            <span className="bg-[#73AC56] text-[#F7F7F8] text-[13px] font-medium px-[14px] py-[2px] rounded-xl">
+            <span className="bg-[#73AC56] text-[#F7F7F8] text-[14px] font-medium px-[14px] py-[2px] rounded-xl">
               5.00
             </span>
-            <span className="text-[#F7F7F8] text-[12px] lg:text-[13px]">
+            <span className="text-[#F7F7F8] text-[12px] lg:text-[14px]">
               Our 2026 Design Trends Report is out
             </span>
           </div>
@@ -106,7 +106,7 @@ export default function Hero() {
         {/* Heading */}
         <motion.h1
           {...fadeUp(0.1)}
-          className="text-[#F7F7F8] text-center leading-[1.3] lg:text-[clamp(2rem,5vw,4.2rem)] text-[clamp(1.7rem,5vw,3.8rem)] font-medium tracking-[0.02rem] m-0"
+          className="text-[#F7F7F8] text-center leading-[1.3] 3xl:text-[clamp(2rem,5vw,5.5rem)] 1920: text-[clamp(2rem,5vw,4.5rem)] 2xl:text-[clamp(2rem,5vw,4.2rem) xl:text-[clamp(2rem,5vw,4.2rem)  lg:text-[clamp(2rem,5vw,4.2rem) text-[clamp(1.7rem,5vw,3.8rem)] font-medium tracking-[0.02rem] m-0"
         >
           <span className="font-['Inter',sans-serif] not-italic">Crafting </span>
           <em className="font-['Playfair_Display',serif] italic">Digital</em>
@@ -135,7 +135,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Hire Us pill */}
-        <motion.div {...fadeUp(0.34)} className="mt-20">
+        <motion.div {...fadeUp(0.34)} className="mt-32">
           <div className="flex justify-center" style={{ width: PILL_WIDTH }}>
             <motion.div
               onMouseEnter={() => setHireExpanded(true)}

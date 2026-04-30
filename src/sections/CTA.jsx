@@ -63,7 +63,7 @@ export default function CTA() {
 
   return (
     <section id="contact" ref={containerRef} className="bg-white">
-      <div className="md:px-10 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6 py-20 3xl:py-48 2xl:py-36 xl:py-24">
+      <div className="md:px-10 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6 py-20 3xl:py-48 2xl:py-36 xl:py-24">
         {/* Heading */}
         <div className="overflow-hidden">
           <h2

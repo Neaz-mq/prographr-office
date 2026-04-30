@@ -271,7 +271,7 @@ export default function ValueSection() {
       className="w-full bg-white"
       style={{ position: "relative" }}
     >
-      <div className="md:py-12 py-7 3xl:py-44 2xl:py-16 xl:py-16 lg:py-16 px-6 md:px-10 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem]">
+      <div className="md:py-12 py-7 3xl:py-44 2xl:py-16 xl:py-16 lg:py-16 px-6 md:px-10 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem]">
         <div className="overflow-hidden pb-20">
           <h2
             ref={headingRef}

@@ -23,13 +23,13 @@ const PORTFOLIO_ITEMS = [
   {
     id: 3,
     image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777456522/web_ox490e_v4eapp.webp",
+      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777545479/programming_vvfsai.jpg",
     tags: ["React JS", "Next JS", "MERN"],
   },
   {
     id: 4,
     image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777455150/Cover_jw7lls.webp",
+      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777544455/TK_2-03_dzylc6.webp",
     tags: ["Brand Identity", "Brand Book", "Brand Manual"],
   },
   {
@@ -210,7 +210,7 @@ export default function PortfolioSection() {
       />
 
       {/* Heading */}
-      <div className="w-full px-3 md:px-[2.5rem] 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mb-16">
+      <div className="w-full px-3 md:px-[2.5rem] 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mb-16">
         <div className="shrink-0 self-start 3xl:w-[500px] 2xl:w-[380px] xl:w-[250px] lg:w-[200px]">
           <h2
             ref={headingRef}

@@ -78,7 +78,7 @@ export default function ClientLogos() {
 
   return (
     <section className="bg-white 3xl:pt-28 2xl:pt-20 xl:pt-20 lg:pt-20 md:pt-14 sm:pt-16 pt-12 pb-6 md:pb-8 3xl:pb-40">
-      <div className="md:px-[2.5rem] 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6">
+      <div className="md:px-[2.5rem] 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6">
         {/* ── Heading ── */}
         <div className="flex flex-col items-center text-center mb-6 md:mb-14">
           <p className="text-[#73AC56] uppercase tracking-[0.1em] text-[10px] md:text-[17px] font-medium mb-3">

@@ -72,7 +72,7 @@ export default function FAQ() {
   return (
     <section id="faq" ref={containerRef} className="bg-[#2A2A2C]">
       {/* ── Careers ── */}
-      <div className="md:px-10 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6 3xl:pt-64 2xl:pt-52 xl:pt-36 lg:pt-36 md:pt-36 pb-16 pt-28 border-b border-white/[8%] hidden">
+      <div className="md:px-10 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6 3xl:pt-64 2xl:pt-52 xl:pt-36 lg:pt-36 md:pt-36 pb-16 pt-28 border-b border-white/[8%] hidden">
         <div className="overflow-hidden">
           <h2
             ref={careersHeadingRef}
@@ -106,7 +106,7 @@ export default function FAQ() {
       </div>
 
       {/* ── FAQ ── */}
-      <div className="md:px-10 3xl:px-[26rem] 2xl:px-[10rem] xl:px-20 lg:px-14 mx-auto px-6 3xl:pt-32 3xl:pb-32 2xl:pt-32 2xl:pb-32 xl:pt-32 xl:pb-32 lg:pt-32 lg:pb-32 md:pt-32 md:pb-32 sm:pt-24 sm:pb-24 pt-20 pb-20">
+      <div className="md:px-10 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-20 lg:px-14 mx-auto px-6 3xl:pt-32 3xl:pb-32 2xl:pt-32 2xl:pb-32 xl:pt-32 xl:pb-32 lg:pt-32 lg:pb-32 md:pt-32 md:pb-32 sm:pt-24 sm:pb-24 pt-20 pb-20">
         <div className="overflow-hidden">
           <h2
             ref={faqHeadingRef}
@@ -130,8 +130,12 @@ export default function FAQ() {
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full flex items-center justify-between gap-6 py-5 text-left group"
                 >
-                  {/* ✅ CHANGED: removed conditional, always text-[#73AC56] */}
-                  <span className="text-base md:text-base lg:text-md xl:text-lg 2xl:text-lg 3xl:text-2xl tracking-[0.02em] font-medium text-[#73AC56]">
+                  {/* ✅ White by default, green when open */}
+                  <span
+                    className={`text-base md:text-base lg:text-md xl:text-lg 2xl:text-lg 3xl:text-2xl tracking-[0.02em] font-medium transition-colors duration-300 ${
+                      isOpen ? "text-[#73AC56]" : "text-[#e7e7e7]"
+                    }`}
+                  >
                     {faq.q}
                   </span>
                   <span className="shrink-0 text-[#F7F7F8] text-lg leading-none w-5 text-center">

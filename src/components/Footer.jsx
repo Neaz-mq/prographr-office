@@ -49,7 +49,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#2A2A2C]">
-      <div className="mx-auto px-6 md:px-10 lg:px-[4rem] xl:px-[5rem] 2xl:px-[10rem] 3xl:px-[26rem] pt-12 md:pt-16 pb-0">
+      <div className="mx-auto px-6 md:px-10 lg:px-[4rem] xl:px-[5rem] 2xl:px-[10rem] 3xl:px-[26rem] 1920:px-[18rem] pt-12 md:pt-16 pb-0">
         {/* ── Mobile View ── */}
         <div className="md:hidden">
           <div className="flex items-center gap-2 mb-10">
