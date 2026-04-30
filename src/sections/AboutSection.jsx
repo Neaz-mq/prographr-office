@@ -265,8 +265,8 @@ export default function AboutSection() {
           <div className="flex items-stretch gap-4 w-full">
             {/* Solo stat */}
             <div className="flex flex-col justify-center gap-1 shrink-0
-              3xl:min-w-[140px] 2xl:min-w-[110px] xl:min-w-[90px] lg:min-w-[80px]">
-              <div className="3xl:text-[58px] 2xl:text-[52px] xl:text-[42px] lg:text-[36px]
+              3xl:min-w-[140px] 2xl:min-w-[110px] xl:min-w-[90px] lg:min-w-[80px] mt-5">
+              <div className="3xl:text-[60px] 2xl:text-[52px] xl:text-[42px] lg:text-[36px]
                 font-semibold leading-none tracking-[-2px] text-[#73AC56]">
                 30+
               </div>
