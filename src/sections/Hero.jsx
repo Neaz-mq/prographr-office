@@ -16,7 +16,7 @@ const services = [
   "and many more",
 ];
 
-const PILL_WIDTH = 110;
+const PILL_WIDTH = 160;
 const CIRCLE_SIZE = 42;
 
 const pillTransition = (expanded) => ({
@@ -75,152 +75,6 @@ function UpworkIcon({ size = 42 }) {
   );
 }
 
-function FloatingIcon({ children, entryDelay = 0, floatY = 10, floatX = 4, duration = 5, className = "" }) {
-  return (
-    <motion.div
-      className={`absolute pointer-events-none select-none ${className}`}
-      initial={{ opacity: 0, scale: 0.3, rotate: -20 }}
-      animate={{
-        opacity: 1,
-        scale: 1,
-        rotate: 0,
-        transition: { duration: 0.8, delay: entryDelay, ease: [0.22, 1, 0.36, 1] },
-      }}
-    >
-      <motion.div
-        animate={{
-          y: [0, -floatY, 0, floatY * 0.5, 0],
-          x: [0, floatX, 0, -floatX * 0.6, 0],
-          rotate: [0, 5, -3, 4, 0],
-        }}
-        transition={{ duration, repeat: Infinity, ease: "easeInOut", delay: entryDelay * 0.3 }}
-      >
-        {children}
-      </motion.div>
-    </motion.div>
-  );
-}
-
-function BezierIcon() {
-  return (
-    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="1" width="9" height="9" rx="1.5" stroke="#73AC56" strokeWidth="1.8" fill="none" />
-      <rect x="36" y="1" width="9" height="9" rx="1.5" stroke="#73AC56" strokeWidth="1.8" fill="none" />
-      <rect x="18.5" y="36" width="9" height="9" rx="1.5" stroke="#73AC56" strokeWidth="1.8" fill="none" />
-      <path d="M10 5.5 Q23 5.5 36 5.5" stroke="#73AC56" strokeWidth="1.4" fill="none" strokeDasharray="3 2.5" />
-      <path d="M5.5 10 Q5.5 28 23 36" stroke="#73AC56" strokeWidth="1.4" fill="none" strokeDasharray="3 2.5" />
-      <path d="M40.5 10 Q40.5 28 28 36" stroke="#73AC56" strokeWidth="1.4" fill="none" strokeDasharray="3 2.5" />
-    </svg>
-  );
-}
-
-function MegaphoneIcon() {
-  return (
-    <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 17 L8 29 L15 29 L15 17 Z" stroke="#73AC56" strokeWidth="1.8" fill="none" strokeLinejoin="round" />
-      <path d="M15 15 L36 8 L36 38 L15 31 Z" stroke="#73AC56" strokeWidth="1.8" fill="none" strokeLinejoin="round" />
-      <path d="M11 29 L9 37" stroke="#73AC56" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M39 18 Q42 23 39 28" stroke="#73AC56" strokeWidth="1.6" fill="none" strokeLinecap="round" />
-      <path d="M41 14 Q46 23 41 32" stroke="#73AC56" strokeWidth="1.4" fill="none" strokeLinecap="round" strokeOpacity="0.5" />
-    </svg>
-  );
-}
-
-function CodeIcon() {
-  return (
-    <svg width="56" height="30" viewBox="0 0 56 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M15 4 L3 15 L15 26" stroke="#73AC56" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M41 4 L53 15 L41 26" stroke="#73AC56" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M32 2 L24 28" stroke="#73AC56" strokeWidth="2" strokeLinecap="round" fill="none" />
-    </svg>
-  );
-}
-
-function SparkleShape({ size = 10 }) {
-  const r = size / 2;
-  const outerR = r;
-  const innerR = r * 0.35;
-  const points = [];
-  for (let i = 0; i < 8; i++) {
-    const angle = (Math.PI / 4) * i - Math.PI / 2;
-    const radius = i % 2 === 0 ? outerR : innerR;
-    const x = r + radius * Math.cos(angle);
-    const y = r + radius * Math.sin(angle);
-    points.push(`${x},${y}`);
-  }
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points={points.join(" ")} fill="#73AC56" />
-    </svg>
-  );
-}
-
-function Sparkle({ delay, offsetX, offsetY, flyX, flyY, size = 10 }) {
-  return (
-    <motion.div
-      className="absolute pointer-events-none select-none"
-      style={{ left: "50%", top: "50%", marginLeft: offsetX, marginTop: offsetY }}
-      initial={{ opacity: 0, x: 0, y: 0, scale: 0.6, rotate: 0 }}
-      animate={{
-        opacity: [0, 1, 1, 0],
-        x: [0, flyX * 0.4, flyX],
-        y: [0, flyY * 0.4, flyY],
-        scale: [0.6, 1.2, 0.4],
-        rotate: [0, 30, 60],
-      }}
-      transition={{
-        duration: 1.1,
-        delay,
-        repeat: Infinity,
-        repeatDelay: 1.6,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-    >
-      <SparkleShape size={size} />
-    </motion.div>
-  );
-}
-
-function CursorClickAnimation({ className = "" }) {
-  return (
-    <div className={`absolute pointer-events-none select-none ${className}`}>
-      <motion.div
-        style={{ position: "relative", width: 60, height: 60 }}
-        initial={{ x: 160, y: 160, opacity: 0, scale: 0.5 }}
-        animate={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-        transition={{
-          type: "spring",
-          stiffness: 90,
-          damping: 18,
-          mass: 1.1,
-          delay: 0.5,
-          opacity: { duration: 0.3, delay: 0.5 },
-        }}
-      >
-        <svg
-  width="52"
-  height="52"
-  viewBox="0 0 52 52"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
-  style={{ display: "block" }}
->
-  <path
-    d="M6 6 L44 22 L28 28 L22 44 Z"
-    fill="#73AC56"
-    stroke="#2A2A2C"
-    strokeWidth="1.5"
-    strokeLinejoin="round"
-  />
-</svg>
-        <Sparkle delay={1.1} offsetX={-14} offsetY={-36} flyX={-14} flyY={-16} size={8} />
-        <Sparkle delay={1.25} offsetX={-4} offsetY={-44} flyX={0} flyY={-20} size={13} />
-        <Sparkle delay={1.4} offsetX={10} offsetY={-34} flyX={16} flyY={-12} size={8} />
-      </motion.div>
-    </div>
-  );
-}
-
 export default function Hero() {
   const [hireExpanded, setHireExpanded] = useState(false);
 
@@ -234,24 +88,6 @@ export default function Hero() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Inter:wght@400;500&display=swap');
       `}</style>
-
-      {/* Top-left: Bezier */}
-      <FloatingIcon entryDelay={0.65} floatY={12} floatX={5} duration={5.5} className="left-[10%] top-[20%]">
-        <BezierIcon />
-      </FloatingIcon>
-
-      {/* Top-right: Megaphone */}
-      <FloatingIcon entryDelay={0.8} floatY={10} floatX={-5} duration={6} className="right-[10%] top-[18%]">
-        <MegaphoneIcon />
-      </FloatingIcon>
-
-      {/* Bottom-left: </> code */}
-      <FloatingIcon entryDelay={1.0} floatY={8} floatX={6} duration={6.5} className="left-[8%] bottom-[24%]">
-        <CodeIcon />
-      </FloatingIcon>
-
-      {/* Bottom-right: Cursor + sparkles */}
-      <CursorClickAnimation className="right-[9%] bottom-[22%]" />
 
       {/* Main content */}
       <div className="flex flex-col items-center justify-center w-full" style={{ zIndex: 1 }}>
@@ -284,7 +120,7 @@ export default function Hero() {
           <br />
           <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Experiences</em>
           <span style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}> That </span>
-          <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Define</em>
+          <em style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}>Define</em>
           <br />
           <span style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}>the </span>
           <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Future</em>
@@ -328,7 +164,7 @@ export default function Hero() {
                   <motion.span
                     key="hire-text"
                     {...textAnimate}
-                    style={{ color: "#F7F7F8", fontSize: 15, whiteSpace: "nowrap", userSelect: "none", position: "relative", zIndex: 1 }}
+                    style={{ color: "#F7F7F8", fontSize: 16, whiteSpace: "nowrap", userSelect: "none", position: "relative", zIndex: 1 }}
                   >
                     Hire Us
                   </motion.span>

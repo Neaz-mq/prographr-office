@@ -129,8 +129,8 @@ export default function Navbar() {
               />
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center justify-between flex-1 ml-10 lg:ml-36">
+            {/* Desktop Nav — links + button grouped on the right */}
+            <div className="hidden md:flex items-center gap-7 lg:gap-10 ml-auto">
               <nav className="flex items-center gap-7 lg:gap-10">
                 {navLinks.map(({ label, sectionId }) => (
                   <button
