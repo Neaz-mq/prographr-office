@@ -136,7 +136,7 @@ export default function Navbar() {
                   <button
                     key={sectionId}
                     onClick={() => scrollToSection(sectionId)}
-                    className={`text-[14px] 3xl:text-[16px] 2xl:text-[13px] xl:text-[13px] lg:text-[14px] md:text-[13px] font-light transition-colors duration-200 cursor-pointer bg-transparent border-none outline-none ${
+                    className={`text-[14px] 3xl:text-[16px] 2xl:text-[13px] xl:text-[13px] lg:text-[14px] md:text-[13px] font-light transition-colors duration-200 cursor-pointer bg-transparent border-none mr-2  outline-none ${
                       isHome && activeSection === sectionId
                         ? "text-[#F7F7F8] underline underline-offset-[5px] decoration-white/60"
                         : "text-[#F7F7F8] hover:text-white"
@@ -150,7 +150,7 @@ export default function Navbar() {
               {/* Desktop Let's Talk button */}
               <button
                 onClick={() => scrollToSection("contact")}
-                className="text-[14px] 3xl:text-[16px] font-light text-[#F7F7F8] border border-[#73AC56] px-5 py-[7px] rounded-full hover:bg-[#73AC56] transition-colors duration-200 cursor-pointer bg-transparent outline-none whitespace-nowrap"
+                className="text-[14px] 3xl:text-[16px] font-light text-[#F7F7F8] border border-[#73AC56] px-5 py-[7px] rounded-full hover:bg-[#73AC56] transition-colors duration-200 cursor-pointer bg-transparent outline-none whitespace-nowrap ml-2"
               >
                 Let's Talk
               </button>
