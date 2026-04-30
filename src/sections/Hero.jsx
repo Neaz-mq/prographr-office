@@ -81,7 +81,7 @@ export default function Hero() {
   return (
     <div
       id="hero"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 bg-[#2A2A2C] font-['Inter',sans-serif]"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 bg-[#2A2A2C] font-['Inter',sans-serif] "
     >
       {/* Google Fonts */}
       <style>{`
@@ -89,7 +89,7 @@ export default function Hero() {
       `}</style>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full mt-5">
 
         {/* Badge */}
         <motion.div {...fadeUp(0)} className="mb-8">
@@ -106,7 +106,7 @@ export default function Hero() {
         {/* Heading */}
         <motion.h1
           {...fadeUp(0.1)}
-          className="text-[#F7F7F8] text-center leading-[1.3] 3xl:text-[clamp(2rem,5vw,5.5rem)] 1920: text-[clamp(2rem,5vw,4.5rem)] 2xl:text-[clamp(2rem,5vw,4.2rem) xl:text-[clamp(2rem,5vw,4.2rem)  lg:text-[clamp(2rem,5vw,4.2rem) text-[clamp(1.7rem,5vw,3.8rem)] font-medium tracking-[0.02rem] m-0"
+          className="text-[#F7F7F8] text-center leading-[1.3] 3xl:text-[clamp(2rem,5vw,5.5rem)] 1920:text-[clamp(2rem,5vw,4.5rem)] 2xl:text-[clamp(2rem,5vw,4.2rem) xl:text-[clamp(2rem,5vw,4.2rem)  lg:text-[clamp(2rem,5vw,4.2rem) text-[clamp(1.7rem,5vw,3.8rem)] font-medium tracking-[0.02rem] m-0 "
         >
           <span className="font-['Inter',sans-serif] not-italic">Crafting </span>
           <em className="font-['Playfair_Display',serif] italic">Digital</em>
@@ -135,7 +135,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Hire Us pill */}
-        <motion.div {...fadeUp(0.34)} className="mt-32">
+        <motion.div {...fadeUp(0.34)} className="3xl:mt-32 1920:mt-28 mt-20">
           <div className="flex justify-center" style={{ width: PILL_WIDTH }}>
             <motion.div
               onMouseEnter={() => setHireExpanded(true)}
