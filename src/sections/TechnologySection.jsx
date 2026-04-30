@@ -74,7 +74,7 @@ function CardInner({ service }) {
             <h3 className="text-white font-medium leading-[1.2] tracking-[0.02em] whitespace-pre-line text-[clamp(15px,4.5vw,15px)] sm:text-[clamp(17px,2.8vw,24px)] lg:text-[clamp(17px,1.9vw,27px)] 3xl:text-[clamp(28px,3vw,28px)]">
               {service.title}
             </h3>
-            <div className="flex flex-wrap gap-[10px] sm:gap-[14px] sm:justify-end">
+            <div className="flex flex-wrap gap-[10px] sm:gap-[14px] sm:justify-end mt-4 3xl:mt-0 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0">
               {service.tags.map((tag) => (
                 <span
                   key={tag}

@@ -149,7 +149,7 @@ export default function PortfolioSection() {
         <style dangerouslySetInnerHTML={{ __html: `.seamless-swiper .swiper-wrapper { transition-timing-function: linear !important; }` }} />
 
         <div className="px-5 sm:px-8 mb-8 overflow-hidden">
-          <div className="pb-5 border-b border-[#efefef]">
+          <div className="pb-2">
             <h2
               ref={headingRef}
               className="text-[clamp(28px,10vw,40px)] font-bold leading-[1.15] text-[#454348] tracking-wide"
@@ -179,7 +179,7 @@ export default function PortfolioSection() {
 
       {/* Heading */}
       <div className="w-full px-3 md:px-[2.5rem] 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mb-16">
-        <div className="shrink-0 self-start 3xl:w-[500px] 2xl:w-[380px] xl:w-[150px] lg:w-[130px]">
+        <div className="shrink-0 self-start 3xl:w-[500px] 2xl:w-[380px] xl:w-[250px] lg:w-[200px]">
           <h2 ref={headingRef} className="3xl:text-[clamp(52px,10vw,90px)] 2xl:text-[clamp(52px,10vw,80px)] xl:text-[clamp(45px,3.8vw,58px)] lg:text-[clamp(40px,3.8vw,58px)] md:text-[clamp(36px,3.8vw,58px)] font-bold text-[#454348] leading-[1.2] tracking-wide">
             Our Recent<br />Work
           </h2>

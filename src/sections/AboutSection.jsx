@@ -142,10 +142,10 @@ export default function AboutSection() {
           className="max-w-7xl mx-auto px-5 sm:px-8 w-full pt-4 pb-8"
         >
           <div className="flex flex-row items-start justify-between gap-4 md:pt-8 pt-5">
-            <div className="shrink-0">
+            <div className="shrink-0 ">
               <h2 className="text-[clamp(28px,10vw,40px)] font-bold text-[#454348] leading-[1.05] tracking-[-1px]">
-                About
-                <br />
+                About 
+                <br/>
                 Us
               </h2>
             </div>
@@ -193,7 +193,7 @@ export default function AboutSection() {
 
           {/* CTA */}
           <div
-            className="w-full overflow-hidden relative border border-[#efefef]"
+            className="w-full overflow-hidden relative"
             style={{ height: "clamp(240px, 55vw, 320px)" }}
           >
             <img
@@ -224,7 +224,7 @@ export default function AboutSection() {
         className="w-full shrink-0 px-3 md:px-[2.5rem] 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] 3xl:pt-6 2xl:pt-16 xl:pt-16 lg:pt-16 3xl:pb-32 2xl:pb-20 xl:pb-16 lg:pb-16 pb-5"
       >
         <div className="flex items-end 3xl:gap-12 2xl:gap-10 xl:gap-8 lg:gap-6">
-          <div className="shrink-0 self-start 3xl:w-[500px] 2xl:w-[380px] xl:w-[150px] lg:w-[130px]">
+          <div className="shrink-0 self-start 3xl:w-[500px] 2xl:w-[380px] xl:w-[250px] lg:w-[230px] ">
             <h2 className="3xl:text-[clamp(52px,10vw,90px)] 2xl:text-[clamp(52px,10vw,80px)] xl:text-[clamp(45px,3.8vw,58px)] lg:text-[clamp(40px,3.8vw,58px)] md:text-[clamp(36px,3.8vw,58px)] font-bold text-[#454348] leading-[1.0] tracking-wide">
               About Us
             </h2>
@@ -255,7 +255,7 @@ export default function AboutSection() {
           <h3 className="
             3xl:text-[48px] 2xl:text-[38px] xl:text-[30px] lg:text-[26px]
             font-light text-[#454348]
-            3xl:leading-[1.3] 2xl:leading-[1.35] xl:leading-[1.35] lg:leading-[1.35] 3xl:mt-12 2xl:mt-4 lg:mt-4 md:mt-4
+            3xl:leading-[1.3] 2xl:leading-[1.35] xl:leading-[1.35] lg:leading-[1.35] 3xl:mt-12 2xl:mt-8 xl:mt-8 lg:mt-8 md:mt-4
           ">
             What makes<br />
             <span className="whitespace-nowrap">our agency different</span>
@@ -265,7 +265,7 @@ export default function AboutSection() {
           <div className="flex items-stretch gap-4 w-full">
             {/* Solo stat */}
             <div className="flex flex-col justify-center gap-1 shrink-0
-              3xl:min-w-[140px] 2xl:min-w-[110px] xl:min-w-[90px] lg:min-w-[80px] mt-5">
+              3xl:min-w-[140px] 2xl:min-w-[110px] xl:min-w-[90px] lg:min-w-[80px] 3xl:mt-5 2xl:mt-5 xl:mt-5 lg:mt-4">
               <div className="3xl:text-[60px] 2xl:text-[52px] xl:text-[42px] lg:text-[36px]
                 font-semibold leading-none tracking-[-2px] text-[#73AC56]">
                 30+
@@ -278,7 +278,7 @@ export default function AboutSection() {
 
             {/* Dark box — stretches to fill remaining width */}
             <div className="flex-1 bg-[#2A2A2C]
-              3xl:px-10 3xl:py-16 2xl:px-8 2xl:py-8 xl:px-6 xl:py-8 lg:px-5 lg:py-8
+              3xl:px-10 3xl:py-16 2xl:px-8 2xl:py-12 xl:px-6 xl:py-12 lg:px-5 lg:py-12
               flex items-center justify-around gap-4">
               <div>
                 <div className="3xl:text-[54px] 2xl:text-[46px] xl:text-[38px] lg:text-[32px]
