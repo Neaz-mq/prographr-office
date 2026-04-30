@@ -24,7 +24,23 @@
 @tailwind utilities;
 
 @layer base {
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: none !important;
+  }
+
+  /* ── Restore default cursor on touch/mobile devices ── */
+  @media (pointer: coarse) {
+    * {
+      cursor: auto !important;
+    }
+    a, button, [role='button'], label {
+      cursor: pointer !important;
+    }
+  }
+
   html {
     scroll-behavior: auto;
     overflow-x: hidden;
@@ -54,6 +70,14 @@
   }
   .scrollbar-hide::-webkit-scrollbar { display: none; }
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ── Custom Cursor ── */
+#custom-cursor img {
+  transition: transform 0.2s ease;
+}
+#custom-cursor.cursor-hover img {
+  transform: scale(1.4);
 }
 
 @keyframes marquee {
