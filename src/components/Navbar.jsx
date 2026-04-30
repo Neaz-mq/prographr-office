@@ -117,7 +117,7 @@ export default function Navbar() {
 
   return (
     <>
-     <header className="absolute top-0 left-0 right-0 z-50 px-3 md:px-[1rem] lg:px-[4rem] xl:px-[5rem] 2xl:px-[9rem] 1920:px-[18rem] 3xl:px-[25rem] 3xl:pt-[10px] 2xl:pt-[10px] xl:pt-[10px] lg:pt-[10px] md:pt-[10px] pt-[10px]">
+      <header className="absolute top-0 left-0 right-0 z-50 px-3 md:px-[1rem] lg:px-[4rem] xl:px-[5rem] 2xl:px-[9rem] 1920:px-[18rem] 3xl:px-[25rem] pt-[10px]">
         <div className="mx-auto transition-all duration-500">
           <div className="flex items-center justify-between px-6 md:px-8 h-[65px] 3xl:h-[85px] 2xl:h-[70px] xl:h-[60px] lg:h-[55px] md:h-[55px]">
             {/* Logo */}
@@ -129,17 +129,17 @@ export default function Navbar() {
               />
             </Link>
 
-            {/* Desktop Nav — links + button grouped on the right */}
+            {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-7 lg:gap-10 ml-auto">
               <nav className="flex items-center gap-7 lg:gap-10">
                 {navLinks.map(({ label, sectionId }) => (
                   <button
                     key={sectionId}
                     onClick={() => scrollToSection(sectionId)}
-                    className={`text-[14px] 3xl:text-[16px] 2xl:text-[13px] xl:text-[13px] lg:text-[14px] md:text-[13px] font-light transition-colors duration-200 cursor-pointer bg-transparent border-none mr-2  outline-none ${
+                    className={`text-[14px] 3xl:text-[16px] 1920:text-[16px] 2xl:text-[13px] xl:text-[13px] lg:text-[14px] md:text-[13px] font-light transition-colors duration-200 cursor-pointer bg-transparent border-none mr-2 outline-none ${
                       isHome && activeSection === sectionId
-                        ? "text-[#F7F7F8] underline underline-offset-[5px] decoration-white/60"
-                        : "text-[#F7F7F8] hover:text-white"
+                        ? "text-[#C8C8C8]  underline underline-offset-[5px] decoration-white/60"
+                        : "text-[#C8C8C8]  hover:text-white"
                     }`}
                   >
                     {label}
