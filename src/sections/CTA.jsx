@@ -10,7 +10,7 @@ export default function CTA() {
   const containerRef = useRef(null);
   const headingRef = useRef(null);
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState("idle"); 
+  const [status, setStatus] = useState("idle");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,7 +28,7 @@ export default function CTA() {
             start: "top 95%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     }, containerRef);
 
@@ -92,7 +92,11 @@ export default function CTA() {
         )}
 
         {/* Form */}
-        <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-12">
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-12"
+        >
           {/* Name + Email */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="flex flex-col gap-3">

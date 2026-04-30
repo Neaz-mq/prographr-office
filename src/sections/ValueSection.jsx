@@ -5,13 +5,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const ITEMS = [
- {
+  {
     id: 1,
     label: "Results-driven design",
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/v1777194965/photo-1581291518857-4e27b48ff24e_vuw4gu.avif",
   },
-   {
+  {
     id: 2,
     label: "Brands worth remembering",
     image:
@@ -24,13 +24,13 @@ const ITEMS = [
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/v1777195037/photo-1547658719-da2b51169166_jdz38n.avif",
   },
-{
+  {
     id: 4,
     label: "Delivered on time",
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/v1777195081/photo-1506784983877-45594efa4cbe_soabyp.avif",
   },
-   {
+  {
     id: 5,
     label: "Your growth, our mission",
     image:
@@ -186,7 +186,7 @@ export default function ValueSection() {
             start: "top 95%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
 
       gsap.from(listRef.current.children, {
@@ -243,7 +243,7 @@ export default function ValueSection() {
       nudgeArrow(idx, true);
       activeIdx.current = idx;
     },
-    [hideImage, showImage, nudgeArrow]
+    [hideImage, showImage, nudgeArrow],
   );
 
   const handleLeave = useCallback(
@@ -251,7 +251,7 @@ export default function ValueSection() {
       if (window.innerWidth < 1024) return;
       nudgeArrow(idx, false);
     },
-    [nudgeArrow]
+    [nudgeArrow],
   );
 
   const handleListLeave = useCallback(() => {

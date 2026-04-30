@@ -299,7 +299,7 @@ export default function Testimonials() {
   return (
     <section ref={containerRef} className="w-full bg-white overflow-hidden">
       <div className="bg-[#2A2A2C] pb-[400px]">
-        <div className="3xl:pt-64 2xl:pt-48 xl:pt-36 lg:pt-28 pt-20 pb-14 px-3 md:px-10 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem]">
+        <div className="3xl:pt-64 3xl:pt-52 2xl:pt-48 xl:pt-36 lg:pt-28 pt-20 pb-14 px-3 md:px-10 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem]">
           <div className="relative">
             <div className="overflow-hidden">
               <h2

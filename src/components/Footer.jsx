@@ -5,7 +5,7 @@ const SOCIAL_LINKS = [
   { href: "https://id.pinterest.com/prographr/", label: "Pinterest" },
   { href: null, label: "Instagram" },
   { href: "https://www.linkedin.com/company/prographr/", label: "LinkedIn" },
- { href: null, label: "Twitter" },
+  { href: null, label: "Twitter" },
 ];
 
 function useSectionScroll() {

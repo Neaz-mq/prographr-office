@@ -117,7 +117,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="absolute top-0 left-0 right-0 z-50 px-3 md:px-[1rem] 3xl:px-[25rem] 2xl:px-[9rem] xl:px-[5rem] lg:px-[4rem] 3xl:pt-[10px] 2xl:pt-[10px] xl:pt-[10px] lg:pt-[10px] md:pt-[10px] pt-[10px]">
+     <header className="absolute top-0 left-0 right-0 z-50 px-3 md:px-[1rem] lg:px-[4rem] xl:px-[5rem] 2xl:px-[9rem] 1920:px-[18rem] 3xl:px-[25rem] 3xl:pt-[10px] 2xl:pt-[10px] xl:pt-[10px] lg:pt-[10px] md:pt-[10px] pt-[10px]">
         <div className="mx-auto transition-all duration-500">
           <div className="flex items-center justify-between px-6 md:px-8 h-[65px] 3xl:h-[85px] 2xl:h-[70px] xl:h-[60px] lg:h-[55px] md:h-[55px]">
             {/* Logo */}

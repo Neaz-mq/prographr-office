@@ -61,7 +61,7 @@ export default function FAQ() {
               start: "top 95%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
       });
     }, containerRef);
@@ -85,12 +85,17 @@ export default function FAQ() {
 
         <div className="flex flex-col pt-24">
           {jobs.map((job, i) => (
-            <div key={i} className={`flex items-center justify-between py-5 gap-6 ${i !== 0 ? "border-t border-white/[8%]" : ""}`}>
+            <div
+              key={i}
+              className={`flex items-center justify-between py-5 gap-6 ${i !== 0 ? "border-t border-white/[8%]" : ""}`}
+            >
               <div>
                 <p className="text-[#F7F7F8] font-semibold text-sm 3xl:text-[28px] 2xl:text-[24px] xl:text-[22px] lg:text-[20px] md:text-[18px] text-[17px] leading-tight mb-1 tracking-[0.02em]">
                   {job.title}
                 </p>
-                <p className="text-[#C1C1C1] text-xs md:text-md pt-2">{job.meta}</p>
+                <p className="text-[#C1C1C1] text-xs md:text-md pt-2">
+                  {job.meta}
+                </p>
               </div>
               <button className="shrink-0 border border-white text-white 3xl:text-lg 2xl:text-base xl:text-[11px] lg:text-[11px] md:text-[11px] text-[10px] 3xl:px-5 3xl:py-1.5 2xl:px-5 2xl:py-1.5 xl:px-3 xl:py-1.5 lg:px-2.5 lg:py-1.5 md:px-2.5 md:py-1 px-2 py-1 hover:bg-white hover:text-[#0a0a0a] transition-colors duration-200 whitespace-nowrap">
                 Apply Now
@@ -117,7 +122,10 @@ export default function FAQ() {
           {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
-              <div key={i} className={i !== 0 ? "border-t border-white/[8%]" : ""}>
+              <div
+                key={i}
+                className={i !== 0 ? "border-t border-white/[8%]" : ""}
+              >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full flex items-center justify-between gap-6 py-5 text-left group"
