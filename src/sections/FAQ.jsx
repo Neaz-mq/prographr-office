@@ -133,7 +133,7 @@ export default function FAQ() {
                   {/* ✅ White by default, green when open */}
                   <span
                     className={`text-base md:text-base lg:text-md xl:text-lg 2xl:text-lg 3xl:text-2xl tracking-[0.02em] font-medium transition-colors duration-300 ${
-                      isOpen ? "text-[#73AC56]" : "text-[#e7e7e7]"
+                      isOpen ? "text-[#73AC56]" : "text-[#C1C1C1]"
                     }`}
                   >
                     {faq.q}
