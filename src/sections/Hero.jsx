@@ -81,8 +81,7 @@ export default function Hero() {
   return (
     <div
       id="hero"
-      style={{ background: "#2A2A2C", minHeight: "100vh", fontFamily: "Inter, sans-serif" }}
-      className="relative w-full flex items-center justify-center overflow-hidden px-6"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 bg-[#2A2A2C] font-['Inter',sans-serif]"
     >
       {/* Google Fonts */}
       <style>{`
@@ -90,81 +89,68 @@ export default function Hero() {
       `}</style>
 
       {/* Main content */}
-      <div className="flex flex-col items-center justify-center w-full" style={{ zIndex: 1 }}>
+      <div className="relative z-10 flex flex-col items-center justify-center w-full">
+
         {/* Badge */}
-        <motion.div {...fadeUp(0)} style={{ marginBottom: 32 }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "6px 16px" }}>
-            <span style={{
-              background: "#73AC56", color: "#F7F7F8", fontSize: 13,
-              padding: "2px 14px", borderRadius: 12, fontWeight: 500
-            }}>5.00</span>
-            <span style={{ color: "#F7F7F8", fontSize: 13 }}>Our 2026 Design Trends Report is out</span>
+        <motion.div {...fadeUp(0)} className="mb-8">
+          <div className="inline-flex items-center gap-2 px-4 py-[6px]">
+            <span className="bg-[#73AC56] text-[#F7F7F8] text-[13px] font-medium px-[14px] py-[2px] rounded-xl">
+              5.00
+            </span>
+            <span className="text-[#F7F7F8] text-[12px] lg:text-[13px]">
+              Our 2026 Design Trends Report is out
+            </span>
           </div>
         </motion.div>
 
         {/* Heading */}
         <motion.h1
           {...fadeUp(0.1)}
-          style={{
-            color: "#F7F7F8",
-            textAlign: "center",
-            lineHeight: 1.3,
-            fontSize: "clamp(2rem, 5vw, 4.2rem)",
-            fontWeight: 500,
-            letterSpacing: "0.02rem",
-            margin: 0,
-          }}
+          className="text-[#F7F7F8] text-center leading-[1.3] lg:text-[clamp(2rem,5vw,4.2rem)] text-[clamp(1.7rem,5vw,3.8rem)] font-medium tracking-[0.02rem] m-0"
         >
-          <span style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}>Crafting </span>
-          <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Digital</em>
+          <span className="font-['Inter',sans-serif] not-italic">Crafting </span>
+          <em className="font-['Playfair_Display',serif] italic">Digital</em>
           <br />
-          <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Experiences</em>
-          <span style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}> That </span>
-          <em style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}>Define</em>
+          <em className="font-['Playfair_Display',serif] italic">Experiences</em>
+          <span className="font-['Inter',sans-serif] not-italic"> That </span>
+          <span className="font-['Inter',sans-serif] not-italic">Define</span>
           <br />
-          <span style={{ fontFamily: "Inter, sans-serif", fontStyle: "normal" }}>the </span>
-          <em style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic" }}>Future</em>
+          <span className="font-['Inter',sans-serif] not-italic">the </span>
+          <em className="font-['Playfair_Display',serif] italic">Future</em>
         </motion.h1>
 
         {/* Service tags */}
         <motion.div
           {...fadeUp(0.22)}
-          style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10, marginTop: 48 }}
+          className="flex flex-wrap justify-center gap-[10px] mt-12"
         >
           {services.map((s, i) => (
-            <span key={i} style={{
-              color: "#F7F7F8", fontSize: 11, fontWeight: 500,
-              padding: "7px 18px", background: "#454348", letterSpacing: "0.04em"
-            }}>{s}</span>
+            <span
+              key={i}
+              className="text-[#F7F7F8] text-[11px] font-medium px-[18px] py-[7px] bg-[#454348] tracking-[0.04em]"
+            >
+              {s}
+            </span>
           ))}
         </motion.div>
 
         {/* Hire Us pill */}
-        <motion.div {...fadeUp(0.34)} style={{ marginTop: 80 }}>
-          <div style={{ width: PILL_WIDTH, display: "flex", justifyContent: "center" }}>
+        <motion.div {...fadeUp(0.34)} className="mt-20">
+          <div className="flex justify-center" style={{ width: PILL_WIDTH }}>
             <motion.div
               onMouseEnter={() => setHireExpanded(true)}
               onMouseLeave={() => setHireExpanded(false)}
               animate={{ width: hireExpanded ? CIRCLE_SIZE : PILL_WIDTH }}
               transition={pillTransition(hireExpanded)}
-              style={{
-                height: CIRCLE_SIZE,
-                background: "#73AC56",
-                borderRadius: 999,
-                overflow: "hidden",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-              }}
+              className="bg-[#73AC56] rounded-full overflow-hidden cursor-pointer flex items-center justify-center shrink-0"
+              style={{ height: CIRCLE_SIZE }}
             >
               <AnimatePresence mode="wait">
                 {!hireExpanded ? (
                   <motion.span
                     key="hire-text"
                     {...textAnimate}
-                    style={{ color: "#F7F7F8", fontSize: 16, whiteSpace: "nowrap", userSelect: "none", position: "relative", zIndex: 1 }}
+                    className="text-[#F7F7F8] text-[16px] whitespace-nowrap select-none relative z-10"
                   >
                     Hire Us
                   </motion.span>
@@ -175,7 +161,7 @@ export default function Hero() {
                     target="_blank"
                     rel="noopener noreferrer"
                     {...iconAnimate}
-                    style={{ display: "flex", alignItems: "center", justifyContent: "center", position: "relative", zIndex: 1 }}
+                    className="flex items-center justify-center relative z-10"
                   >
                     <UpworkIcon size={CIRCLE_SIZE} />
                   </motion.a>
@@ -184,6 +170,7 @@ export default function Hero() {
             </motion.div>
           </div>
         </motion.div>
+
       </div>
     </div>
   );

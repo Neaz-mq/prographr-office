@@ -142,6 +142,37 @@ export default function PortfolioSection() {
     className: "seamless-swiper",
   };
 
+  // ── MOBILE ──────────────────────────────────────────────────────────
+  if (!isDesktop) {
+    return (
+      <section id="portfolio" ref={containerRef} className="bg-white w-full overflow-hidden py-12">
+        <style dangerouslySetInnerHTML={{ __html: `.seamless-swiper .swiper-wrapper { transition-timing-function: linear !important; }` }} />
+
+        <div className="px-5 sm:px-8 mb-8 overflow-hidden">
+          <div className="pb-5 border-b border-[#efefef]">
+            <h2
+              ref={headingRef}
+              className="text-[clamp(28px,10vw,40px)] font-bold leading-[1.15] text-[#454348] tracking-wide"
+            >
+              Our Recent
+              <br />
+              Work
+            </h2>
+          </div>
+        </div>
+
+        <Swiper {...swiperProps}>
+          {SLIDES.map((item, i) => (
+            <SwiperSlide key={`m-${item.id}-${i}`} style={{ width: "80vw" }}>
+              <PortfolioCard item={item} imgHeight="260px" />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </section>
+    );
+  }
+
+  // ── DESKTOP ──────────────────────────────────────────────────────────
   return (
     <section id="portfolio" ref={containerRef} className="bg-white w-full overflow-hidden 3xl:py-32 2xl:py-24 py-16">
       <style dangerouslySetInnerHTML={{ __html: `.seamless-swiper .swiper-wrapper { transition-timing-function: linear !important; }` }} />
@@ -158,11 +189,8 @@ export default function PortfolioSection() {
       <div className="w-full">
         <Swiper {...swiperProps}>
           {SLIDES.map((item, i) => (
-            <SwiperSlide key={`${item.id}-${i}`} style={{ width: isDesktop ? slideWidth : "80vw" }}>
-              <PortfolioCard
-                item={item}
-                imgHeight={isDesktop ? imgHeight : "300px"}
-              />
+            <SwiperSlide key={`d-${item.id}-${i}`} style={{ width: slideWidth }}>
+              <PortfolioCard item={item} imgHeight={imgHeight} />
             </SwiperSlide>
           ))}
         </Swiper>

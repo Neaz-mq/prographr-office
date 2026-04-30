@@ -45,7 +45,7 @@ function CharRevealHeading({ triggerRef, className = "", charClassName = "" }) {
       {headingLines.map((line, li) => (
         <p
           key={li}
-          className="3xl:leading-[1.2] 2xl:leading-[1.2] xl:leading-[1.3] lg:leading-[1.3] leading-[1.3] tracking-[0.01em]"
+          className="3xl:leading-[1.2] 2xl:leading-[1.2] xl:leading-[1.3] lg:leading-[1.3] leading-[1] tracking-[0.01em]"
           aria-label={line}
         >
           {line.split("").map((char, ci) => (
@@ -158,7 +158,7 @@ export default function AboutSection() {
         <div className="max-w-7xl mx-auto px-5 sm:px-8 w-full py-8 flex flex-col gap-8">
           {/* Stats */}
           <div className="flex flex-col gap-5">
-            <h3 className="text-[clamp(24px,5.5vw,36px)] font-medium text-[#0a0a0a] leading-[1.25]">
+            <h3 className="text-[clamp(24px,5.5vw,36px)] text-[#454348] leading-[1.25]">
               What makes our agency different
             </h3>
             <div className="flex items-stretch gap-3 sm:gap-5 mt-2">
@@ -170,7 +170,7 @@ export default function AboutSection() {
                   Company with Work Experiences
                 </div>
               </div>
-              <div className="flex-[2] bg-[#182F33] px-4 sm:px-8 py-6 flex gap-5 sm:gap-24 items-center justify-center">
+              <div className="flex-[2] bg-[#2A2A2C] px-4 sm:px-8 py-6 flex gap-5 sm:gap-24 items-center justify-center">
                 <div>
                   <div className="text-[clamp(26px,7vw,40px)] font-semibold leading-none mb-1 tracking-[-1px] text-[#73AC56]">
                     1K+

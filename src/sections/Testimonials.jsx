@@ -213,7 +213,7 @@ export default function Testimonials() {
         ref={containerRef}
         className="w-full bg-white overflow-hidden md:pt-20 pt-0"
       >
-        <div className="bg-[#182F33] pb-[300px]">
+        <div className="bg-[#2A2A2C] pb-[300px]">
           <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-10">
             <div className="flex items-end justify-between gap-4">
               <div className="overflow-hidden">
@@ -242,7 +242,7 @@ export default function Testimonials() {
               {SERVICES.map(({ id, icon, title, desc }) => (
                 <div
                   key={id}
-                  className="flex flex-col px-5 py-8 gap-6 bg-[#1E3539]"
+                  className="flex flex-col px-5 py-8 gap-6 bg-[#454348]"
                 >
                   <div>{icon}</div>
                   <h3 className="text-[#F7F7F8] font-bold text-[14px] leading-[1.35]">
