@@ -66,10 +66,26 @@ function PortfolioCard({ item, imgHeight }) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/20 group-hover:opacity-0 transition-opacity duration-500" />
+        {/* Gradient overlay — fades out on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:opacity-0 transition-opacity duration-500" />
+
+        {/* Tags */}
         <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 flex-wrap transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
           {item.tags.map((tag) => (
-            <span key={tag} className="text-[10px] 2xl:text-[14px] text-black border border-white/40 font-semibold bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-sm whitespace-nowrap">
+            <span
+              key={tag}
+              className="
+                text-[10px] 2xl:text-[13px]
+                text-white font-medium
+                whitespace-nowrap
+                px-3 py-1.5
+                rounded-full
+                border border-white/30
+                bg-white/10
+                backdrop-blur-md
+                shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(0,0,0,0.18)]
+              "
+            >
               {tag}
             </span>
           ))}
@@ -125,11 +141,11 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" ref={containerRef} className="bg-white w-full overflow-hidden 3xl:py-32 2xl:py-24 py-16">
       <style dangerouslySetInnerHTML={{ __html: `.seamless-swiper .swiper-wrapper { transition-timing-function: linear !important; }` }} />
-      
-      {/* Aligned Heading Container */}
+
+      {/* Heading */}
       <div className="w-full px-3 md:px-[2.5rem] 3xl:px-[26rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mb-16">
         <div className="shrink-0 self-start 3xl:w-[500px] 2xl:w-[380px] xl:w-[150px] lg:w-[130px]">
-          <h2 ref={headingRef} className="3xl:text-[clamp(52px,10vw,90px)] 2xl:text-[clamp(52px,10vw,80px)] xl:text-[clamp(45px,3.8vw,58px)] lg:text-[clamp(40px,3.8vw,58px)] md:text-[clamp(36px,3.8vw,58px)] font-bold text-[#454348] leading-[1.2] tracking-wide 3xl:-mt-20 -mt-6">
+          <h2 ref={headingRef} className="3xl:text-[clamp(52px,10vw,90px)] 2xl:text-[clamp(52px,10vw,80px)] xl:text-[clamp(45px,3.8vw,58px)] lg:text-[clamp(40px,3.8vw,58px)] md:text-[clamp(36px,3.8vw,58px)] font-bold text-[#454348] leading-[1.2] tracking-wide">
             Our Recent<br />Work
           </h2>
         </div>
@@ -139,9 +155,9 @@ export default function PortfolioSection() {
         <Swiper {...swiperProps}>
           {SLIDES.map((item, i) => (
             <SwiperSlide key={`${item.id}-${i}`} style={{ width: isDesktop ? slideWidth : "80vw" }}>
-              <PortfolioCard 
-                item={item} 
-                imgHeight={isDesktop ? imgHeight : "300px"} 
+              <PortfolioCard
+                item={item}
+                imgHeight={isDesktop ? imgHeight : "300px"}
               />
             </SwiperSlide>
           ))}

@@ -115,14 +115,14 @@ function TestimonialCard({ item }) {
 
 function ServiceCard({ icon, title, desc }) {
   return (
-    <div className="flex flex-col bg-[#454348] px-8 py-10 lg:px-10 lg:py-12 xl:px-12 xl:py-14 2xl:px-14 2xl:py-16 3xl:px-10 3xl:py-10 gap-7 3xl:gap-12">
+    <div className="flex flex-col bg-[#454348] px-8 py-10 lg:px-10 lg:py-12 xl:px-12 xl:py-14 2xl:px-14 2xl:py-16 3xl:px-10 3xl:py-10 gap-7 3xl:gap-12 3xl:min-h-[460px]">
       <div className="w-12 h-12 flex items-center justify-center shrink-0">
         {icon}
       </div>
 
       <h3
-        className="text-white font-medium leading-[1.35] tracking-[0.01em] shrink-0
-          3xl:text-[clamp(22px,6vw,22px)]
+        className="text-white font-medium leading-[1.40] tracking-[0.01em] shrink-0
+          3xl:text-[clamp(28px,6vw,28px)]
           2xl:text-[clamp(20px,1.6vw,28px)]
           xl:text-[clamp(18px,1.4vw,24px)]
           lg:text-[20px]
@@ -135,7 +135,7 @@ function ServiceCard({ icon, title, desc }) {
 
       <p
         className="leading-[1.7] text-[#B2B2B2]
-          3xl:text-[15px]
+          3xl:text-[19px]
           2xl:text-[14px]
           xl:text-[13px]
           lg:text-[12px]
@@ -230,11 +230,11 @@ export default function Testimonials() {
                 </h2>
               </div>
               <p className="text-right leading-relaxed shrink-0 text-[12px] pb-1 text-white/[38%]">
-                A Showcase
+                Tailored Services
                 <br />
-                of Our Latest
+                for Every Stage
                 <br />
-                Completed Works
+                of Your Growth
               </p>
             </div>
 
@@ -312,9 +312,9 @@ export default function Testimonials() {
               </h2>
             </div>
             <p className="absolute bottom-0 3xl:top-80 2xl:top-60 xl:top-40 lg:top-40 right-0 text-md 3xl:text-xl text-right leading-relaxed text-[#B2B2B2]">
-              A Showcase
+              Tailored Services
               <br />
-              of Our Latest Completed Works
+              for Every Stage of Your Growth
             </p>
           </div>
 
@@ -337,7 +337,7 @@ export default function Testimonials() {
                 Inspire Us
               </h2>
             </div>
-            <button className="text-white font-semibold uppercase transition-colors duration-200 hover:bg-white hover:text-black shrink-0 self-end mb-1 3xl:text-[15px] 2xl:text-[13px] xl:text-[11px] lg:text-[11px] tracking-[2px] text-[9px] px-6 py-[10px]  bg-[#73AC56]">
+            <button className="text-white font-semibold uppercase transition-colors duration-200  self-end mb-1 3xl:text-[15px] 2xl:text-[13px] xl:text-[11px] lg:text-[11px] tracking-[2px] text-[9px] px-6 py-[10px] bg-[#73AC56]">
               Client Stories
             </button>
           </div>
