@@ -16,8 +16,8 @@ const services = [
   "and many more",
 ];
 
-const PILL_WIDTH = 160;
-const CIRCLE_SIZE = 42;
+const PILL_WIDTH = 170;
+const CIRCLE_SIZE = 46;
 
 const pillTransition = (expanded) => ({
   width: {

@@ -2,22 +2,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 const logos = [
-  { src: "/Asset 1.svg", alt: "Upwork", mono: true },
-  { src: "/Asset 2.svg", alt: "Dribbble", mono: true },
-  { src: "/Asset 5.svg", alt: "Dribbble", mono: true },
-  { src: "/Asset 6.svg", alt: "Dribbble", mono: true },
-  {
-    src: "/Asset 9.svg",
-    alt: "Dribbble",
-    filter: "grayscale(1) brightness(0.25) contrast(1)",
-  },
-  {
-    src: "/magnific-fr.png",
-    alt: "Magnific",
-    filter: "grayscale(1) brightness(0.25) contrast(1)",
-    imgClass: "!h-16 lg:!h-20 2xl:!h-20",
-    mt: 6,
-  },
+  { src: "/Upwork.svg", alt: "Upwork", mono: true },
+  { src: "/Dribbble.svg", alt: "Dribbble", mono: true },
+  { src: "/Envato.svg", alt: "Envato", mono: true },
+  { src: "/Fiverr.svg", alt: "Fiverr", mono: true },
+  { src: "/Freelancer.svg", alt: "Freelancer", mono: true },
+  { src: "/fr.svg", alt: "Freepik", mono: true, scale: "0.55" },
 ];
 
 const MONO_FILTER = "grayscale(1) brightness(0) contrast(100)";
@@ -27,16 +17,15 @@ const LogoTrack = () => (
     {logos.map((logo, i) => (
       <div
         key={i}
-        className="shrink-0 flex items-center justify-center"
-        style={{ width: "clamp(120px, 14vw, 270px)" }}
+        className="shrink-0 3xl:px-7 2xl:px-7 xl:px-7 lg:px-7 md:px-6 sm:px-4 px-2"
       >
         <img
           src={logo.src}
           alt={logo.alt}
-          className={`h-10 lg:h-12 2xl:h-14 3xl:h-7 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200 ${logo.imgClass ?? ""}`}
+          className="lg:h-14 h-11 md:h-12  3xl:h-20 2xl:h-14 xl:h-14 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
           style={{
-            filter: logo.filter ?? (logo.mono ? MONO_FILTER : undefined),
-            ...(logo.mt ? { marginTop: `${logo.mt}px` } : {}),
+            ...(logo.mono ? { filter: MONO_FILTER } : {}),
+            ...(logo.scale ? { transform: `scale(${logo.scale})` } : {}),
           }}
         />
       </div>
@@ -93,8 +82,8 @@ export default function ClientLogos() {
         {/* ── Heading ── */}
         <div className="flex flex-col items-center text-center mb-6 md:mb-14">
           <p
-            className="text-[#73AC56] uppercase tracking-[0.2em] text-[10px] md:text-[22px] font-medium mb-3"
-            style={{ fontFamily: "'Awesome Serif VAR', serif" }}
+            className="text-[#73AC56] uppercase tracking-[0.1em] text-[10px] md:text-[17px] font-medium mb-3"
+            
           >
             Where our work gets recognized
           </p>
