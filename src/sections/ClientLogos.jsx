@@ -7,7 +7,7 @@ const logos = [
   { src: "/Envato.svg", alt: "Envato", mono: true },
   { src: "/Fiverr.svg", alt: "Fiverr", mono: true },
   { src: "/Freelancer.svg", alt: "Freelancer", mono: true },
-  { src: "/fr.svg", alt: "Freepik", mono: true, scale: "0.55" },
+  { src: "/magnific.svg", alt: "Freepik", mono: true, scale: "0.55" },
 ];
 
 const MONO_FILTER = "grayscale(1) brightness(0) contrast(100)";
