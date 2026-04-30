@@ -116,7 +116,7 @@ export default function Footer() {
         </div>
 
         {/* ── Desktop View: Flex Layout ── */}
-        <div className="hidden md:flex items-start justify-between">
+        <div className="hidden md:flex items-start justify-between pb-5">
           {/* Logo — Far Left */}
           <div className="flex-shrink-0">
             <img
@@ -138,7 +138,7 @@ export default function Footer() {
                   <li key={s}>
                     <button
                       onClick={() => scrollToSection("services")}
-                      className="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-lg hover:text-white transition-colors leading-snug text-left bg-transparent border-none outline-none cursor-pointer"
+                      className="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-md hover:text-white transition-colors leading-snug text-left bg-transparent border-none outline-none cursor-pointer"
                     >
                       {s}
                     </button>
@@ -157,7 +157,7 @@ export default function Footer() {
                   <li key={label}>
                     <button
                       onClick={() => scrollToSection(sectionId)}
-                      className="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-lg hover:text-white transition-colors text-left bg-transparent border-none outline-none cursor-pointer"
+                      className="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-md hover:text-white transition-colors text-left bg-transparent border-none outline-none cursor-pointer"
                     >
                       {label}
                     </button>
@@ -178,7 +178,7 @@ export default function Footer() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-lg hover:text-white transition-colors"
+                      className="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-md hover:text-white transition-colors"
                     >
                       {label}
                     </a>
