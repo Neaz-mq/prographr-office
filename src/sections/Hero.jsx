@@ -89,7 +89,7 @@ export default function Hero() {
       `}</style>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full mt-5">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full 3xl:mt-5 1920:mt-5 2xl:mt-16 xl:mt-16 lg:mt-16 mt-10">
 
         {/* Badge */}
         <motion.div {...fadeUp(0)} className="mb-8">
@@ -135,7 +135,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Hire Us pill */}
-        <motion.div {...fadeUp(0.34)} className="3xl:mt-32 1920:mt-28 mt-20">
+        <motion.div {...fadeUp(0.34)} className="3xl:mt-32 1920:mt-28 2xl:mt-14 xl:mt-14 lg:mt-14 mt-20">
           <div className="flex justify-center" style={{ width: PILL_WIDTH }}>
             <motion.div
               onMouseEnter={() => setHireExpanded(true)}
