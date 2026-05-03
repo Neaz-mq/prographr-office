@@ -21,7 +21,7 @@ const SERVICES = [
       "We build visual identities that resonate and endure. From logo creation to full brand guidelines, we ensure your business tells a compelling story that connects deeply with your target audience.",
     tags: ["Logo Design", "Visual Identity", "Typography", "Brand Strategy"],
     image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1775296495/2_hukfxw.webp",
+      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777798982/Cover_d7ceqt.webp",
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ function CardInner({ service }) {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(5,5,5,0.97) 0%, rgba(5,5,5,0.90) 25%, rgba(5,5,5,0.60) 52%, rgba(5,5,5,0.12) 78%, rgba(5,5,5,0.00) 100%)",
+            "linear-gradient(to right, rgba(5,5,5,0.70) 40%, rgba(5,5,5,0.70) 30%, rgba(5,5,5,0.50) 56%, rgba(5,5,5,0.40) 88%, rgba(5,5,5,0.00) 100%)",
         }}
       />
       <div className="absolute inset-0 flex flex-col px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-32">

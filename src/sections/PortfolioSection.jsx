@@ -23,17 +23,11 @@ const PORTFOLIO_ITEMS = [
   {
     id: 3,
     image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777545479/programming_vvfsai.jpg",
-    tags: ["React JS", "Next JS", "MERN"],
-  },
-  {
-    id: 4,
-    image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777544455/TK_2-03_dzylc6.webp",
+      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777798153/run_mbdgux.webp",
     tags: ["Brand Identity", "Brand Book", "Brand Manual"],
   },
   {
-    id: 5,
+    id: 4,
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1776599891/Presentation-15_afhcci.jpg",
     tags: ["Product Label", "Label Design", "Bottle Label"],

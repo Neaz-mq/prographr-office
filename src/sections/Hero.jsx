@@ -89,7 +89,7 @@ export default function Hero() {
       `}</style>
 
       {/* Main content */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full 3xl:mt-5 1920:mt-5 2xl:mt-16 xl:mt-16 lg:mt-16 mt-10">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full 3xl:mt-5 1920:mt-16 2xl:mt-16 xl:mt-16 lg:mt-16 mt-10">
 
         {/* Badge */}
         <motion.div {...fadeUp(0)} className="mb-8">
@@ -106,7 +106,7 @@ export default function Hero() {
         {/* Heading */}
         <motion.h1
           {...fadeUp(0.1)}
-          className="text-[#F7F7F8] text-center leading-[1.3] 3xl:text-[clamp(2rem,5vw,5.5rem)] 1920:text-[clamp(2rem,5vw,4.5rem)] 2xl:text-[clamp(2rem,5vw,4.2rem) xl:text-[clamp(2rem,5vw,4.2rem)  lg:text-[clamp(2rem,5vw,4.2rem) text-[clamp(1.7rem,5vw,3.8rem)] font-medium tracking-[0.02rem] m-0 "
+          className="text-[#F7F7F8] text-center leading-[1.3] 3xl:text-[clamp(2rem,5vw,5.5rem)] 1920:text-[clamp(2rem,5vw,5rem)] 2xl:text-[clamp(2rem,5vw,4.2rem) xl:text-[clamp(2rem,5vw,4.2rem)  lg:text-[clamp(2rem,5vw,4.2rem) text-[clamp(1.7rem,5vw,3.8rem)] font-medium tracking-[0.02rem] m-0 "
         >
           <span className="font-['Inter',sans-serif] not-italic">Crafting </span>
           <em className="font-['Playfair_Display',serif] italic">Digital</em>
@@ -157,7 +157,7 @@ export default function Hero() {
                 ) : (
                   <motion.a
                     key="upwork-icon"
-                    href="https://www.upwork.com"
+                    href="https://www.upwork.com/agencies/2014604446040365323/"
                     target="_blank"
                     rel="noopener noreferrer"
                     {...iconAnimate}
