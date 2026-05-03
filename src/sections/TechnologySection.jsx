@@ -58,7 +58,7 @@ function CardInner({ service }) {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(5,5,5,0.70) 40%, rgba(5,5,5,0.70) 30%, rgba(5,5,5,0.50) 56%, rgba(5,5,5,0.40) 88%, rgba(5,5,5,0.00) 100%)",
+            "linear-gradient(to right, rgba(5,5,5,0.70) 40%, rgba(5,5,5,0.70) 48%, rgba(5,5,5,0.70) 56%, rgba(5,5,5,0.50) 85%, rgba(5,5,5,0.20) 100%)",
         }}
       />
       <div className="absolute inset-0 flex flex-col px-5 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-32">

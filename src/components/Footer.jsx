@@ -3,9 +3,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 const SOCIAL_LINKS = [
   { href: "https://www.facebook.com/prographr.page/", label: "Facebook" },
   { href: "https://id.pinterest.com/prographr/", label: "Pinterest" },
-  { href: null, label: "Instagram" },
+  { href: "https://www.instagram.com/prographr", label: "Instagram" },
   { href: "https://www.linkedin.com/company/prographr/", label: "LinkedIn" },
-  { href: null, label: "Twitter" },
+  { href: "https://x.com/prographr", label: "Twitter" },
 ];
 
 function useSectionScroll() {
