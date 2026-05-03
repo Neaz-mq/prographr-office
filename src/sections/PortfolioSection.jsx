@@ -61,6 +61,25 @@ function useDesktopSizes() {
   return sizes;
 }
 
+// ── NEW: reactive mobile image height ────────────────────────────────
+function useMobileImgHeight() {
+  const getHeight = () => {
+    if (typeof window === "undefined") return "260px";
+    const w = window.innerWidth;
+    if (w >= 768) return "380px";
+    if (w >= 640) return "350px";
+    return "260px";
+  };
+
+  const [height, setHeight] = useState(getHeight);
+  useEffect(() => {
+    const onResize = () => setHeight(getHeight());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return height;
+}
+
 function PortfolioCard({ item, imgHeight }) {
   return (
     <div className="h-full flex flex-col group select-none">
@@ -107,6 +126,8 @@ export default function PortfolioSection() {
   const headingRef = useRef(null);
   const containerRef = useRef(null);
   const { imgHeight, slideWidth } = useDesktopSizes();
+  const mobileImgHeight = useMobileImgHeight(); // ← NEW
+
   const [isDesktop, setIsDesktop] = useState(() =>
     typeof window !== "undefined" ? window.innerWidth >= 1024 : true,
   );
@@ -121,7 +142,6 @@ export default function PortfolioSection() {
     const el = headingRef.current;
     if (!el) return;
 
-    // Set hidden state immediately — before first paint — so there's no flash
     gsap.set(el, { y: 60, opacity: 0, willChange: "transform, opacity" });
 
     const ctx = gsap.context(() => {
@@ -182,7 +202,8 @@ export default function PortfolioSection() {
         <Swiper {...swiperProps}>
           {SLIDES.map((item, i) => (
             <SwiperSlide key={`m-${item.id}-${i}`} style={{ width: "80vw" }}>
-              <PortfolioCard item={item} imgHeight="260px" />
+              {/* ↓ mobileImgHeight instead of hardcoded "260px" */}
+              <PortfolioCard item={item} imgHeight={mobileImgHeight} />
             </SwiperSlide>
           ))}
         </Swiper>
