@@ -129,7 +129,7 @@ export default function TechnologySection() {
   }, []);
 
   return (
-    <section
+    <section id="technology"
       ref={containerRef}
       className="w-full bg-white relative 3xl:pb-32 2xl:pb-32 xl:pb-6"
     >

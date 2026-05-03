@@ -29,9 +29,9 @@ export default function CustomScrollbar() {
       const thumbHeight = Math.min(
         Math.max(
           (doc.clientHeight / doc.scrollHeight) * trackHeight,
-          20  
+          40
         ),
-        60    
+        120
       );
       const thumbTop =
         scrollHeight > 0
@@ -104,28 +104,27 @@ export default function CustomScrollbar() {
         position: "fixed",
         top: 0,
         right: 0,
-        width: "4px",
+        width: "10px",
         height: "100vh",
         zIndex: 9999,
-        padding: "1px",
+       
       }}
     >
       <div
         ref={thumbRef}
         style={{
-          width: "3px",
-          marginLeft: "auto",
-          marginRight: "auto",
+          width: "8px",
+          marginLeft: "1px",
           borderRadius: "999px",
-          background: "rgba(180, 180, 180, 0.5)",
+          background: "rgba(160, 160, 160, 0.6)",
           cursor: "pointer",
           transition: "background 0.2s",
         }}
         onMouseEnter={(e) =>
-          (e.currentTarget.style.background = "rgba(220, 220, 220, 0.8)")
+          (e.currentTarget.style.background = "rgba(220, 220, 220, 0.9)")
         }
         onMouseLeave={(e) =>
-          (e.currentTarget.style.background = "rgba(180, 180, 180, 0.5)")
+          (e.currentTarget.style.background = "rgba(160, 160, 160, 0.6)")
         }
       />
     </div>

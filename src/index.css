@@ -44,10 +44,33 @@
   html {
     scroll-behavior: auto;
     overflow-x: hidden;
+    /* ── Hide native scrollbar (custom component handles it on desktop) ── */
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
-  html::-webkit-scrollbar { display: none; }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── Show native scrollbar on mobile/touch (custom component returns null) ── */
+  @media (pointer: coarse) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #444 #111;
+    }
+    html::-webkit-scrollbar {
+      display: block;
+      width: 6px;
+    }
+    html::-webkit-scrollbar-track {
+      background: #111;
+    }
+    html::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 4px;
+    }
+  }
+
   body {
     font-family: var(--font-body);
     background-color: #ffffff;

@@ -8,6 +8,14 @@ const SOCIAL_LINKS = [
   { href: "https://x.com/prographr", label: "Twitter" },
 ];
 
+const SERVICE_LINKS = [
+  { label: "Graphic Design", sectionId: "portfolio" },
+  { label: "Brand Design", sectionId: "portfolio" },
+  { label: "Web Development", sectionId: "technology" },
+  { label: "Web Design", sectionId: "portfolio" },
+  { label: "PowerPoint Design", sectionId: "portfolio" },
+];
+
 function useSectionScroll() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,14 +42,6 @@ function useSectionScroll() {
 export default function Footer() {
   const scrollToSection = useSectionScroll();
 
-  const serviceLinks = [
-    "Graphic Design",
-    "Brand Design",
-    "Web Development",
-    "Web Design",
-    "PowerPoint Design",
-  ];
-
   const informationLinks = [
     { label: "FAQ", sectionId: "faq" },
     { label: "Support", sectionId: "contact" },
@@ -50,27 +50,24 @@ export default function Footer() {
   return (
     <footer className="bg-[#2A2A2C]">
       <div className="mx-auto px-6 md:px-10 lg:px-[4rem] xl:px-[5rem] 2xl:px-[10rem] 3xl:px-[26rem] 1920:px-[18rem] pt-12 md:pt-16 pb-0">
+        
         {/* ── Mobile View ── */}
         <div className="md:hidden">
           <div className="flex items-center gap-2 mb-10">
-            <img
-              src="/logo.webp"
-              alt="Prographr"
-              className="h-7 w-7 object-contain"
-            />
+            <img src="/logo.webp" alt="Prographr" className="h-7 w-7 object-contain" />
           </div>
 
           <div className="grid grid-cols-2 gap-8 mb-8">
             <div>
               <h4 className="text-white font-medium text-sm mb-4">Services</h4>
               <ul className="space-y-3">
-                {serviceLinks.map((s) => (
-                  <li key={s}>
+                {SERVICE_LINKS.map(({ label, sectionId }) => (
+                  <li key={label}>
                     <button
-                      onClick={() => scrollToSection("services")}
+                      onClick={() => scrollToSection(sectionId)}
                       className="text-[#888] text-xs hover:text-white transition-colors text-left bg-transparent border-none outline-none cursor-pointer"
                     >
-                      {s}
+                      {label}
                     </button>
                   </li>
                 ))}
@@ -78,9 +75,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-white font-medium text-sm mb-4">
-                Information
-              </h4>
+              <h4 className="text-white font-medium text-sm mb-4">Information</h4>
               <ul className="space-y-3">
                 {informationLinks.map(({ label, sectionId }) => (
                   <li key={label}>
@@ -115,43 +110,31 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ── Desktop View: Flex Layout ── */}
+        {/* ── Desktop View ── */}
         <div className="hidden md:flex items-start justify-between pb-5">
-          {/* Logo — Far Left */}
           <div className="flex-shrink-0">
-            <img
-              src="/logo.webp"
-              alt="Prographr"
-              className="h-6 w-6 lg:h-7 lg:w-7 3xl:h-9 3xl:w-9 object-contain"
-            />
+            <img src="/logo.webp" alt="Prographr" className="h-6 w-6 lg:h-7 lg:w-7 3xl:h-9 3xl:w-9 object-contain" />
           </div>
 
-          {/* Nav Columns — Grouped to the Right */}
           <div className="flex gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 3xl:gap-64">
-            {/* Service */}
             <div className="flex flex-col">
-              <h4 className="text-[#73AC56] font-medium text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl mb-10">
-                Services
-              </h4>
+              <h4 className="text-[#73AC56] font-medium text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl mb-10">Services</h4>
               <ul className="space-y-3">
-                {serviceLinks.map((s) => (
-                  <li key={s}>
+                {SERVICE_LINKS.map(({ label, sectionId }) => (
+                  <li key={label}>
                     <button
-                      onClick={() => scrollToSection("services")}
+                      onClick={() => scrollToSection(sectionId)}
                       className="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-md hover:text-white transition-colors leading-snug text-left bg-transparent border-none outline-none cursor-pointer"
                     >
-                      {s}
+                      {label}
                     </button>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Information */}
             <div className="flex flex-col">
-              <h4 className="text-[#73AC56] font-medium text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl mb-10">
-                Information
-              </h4>
+              <h4 className="text-[#73AC56] font-medium text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl mb-10">Information</h4>
               <ul className="space-y-3">
                 {informationLinks.map(({ label, sectionId }) => (
                   <li key={label}>
@@ -166,11 +149,8 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Social */}
             <div className="flex flex-col">
-              <h4 className="text-[#73AC56] font-medium text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl mb-10">
-                Social
-              </h4>
+              <h4 className="text-[#73AC56] font-medium text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl mb-10">Social</h4>
               <ul className="space-y-3">
                 {SOCIAL_LINKS.map(({ href, label }) => (
                   <li key={label}>
@@ -194,7 +174,6 @@ export default function Footer() {
           <p className="text-[#888] text-xs md:text-[11px] lg:text-sm text-center sm:text-left">
             © {new Date().getFullYear()} All rights reserved Prographr.
           </p>
-
           <p className="text-[#888] text-xs md:text-[11px] lg:text-sm">
             Developed by{" "}
             <span className="text-white hover:text-[#FF7431] transition-colors cursor-default">
