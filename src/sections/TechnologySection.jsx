@@ -16,10 +16,10 @@ const SERVICES = [
   },
   {
     id: 2,
-    title: "Brand\nDesign Solution",
+    title: "Design Solution",
     description:
       "We build visual identities that resonate and endure. From logo creation to full brand guidelines, we ensure your business tells a compelling story that connects deeply with your target audience.",
-    tags: ["Logo Design", "Visual Identity", "Typography", "Brand Strategy"],
+    tags: ["Company Profile", "Print Design", "Visual Identity"],
     image:
       "https://res.cloudinary.com/dzi3u164c/image/upload/v1777798982/Cover_d7ceqt.webp",
   },
@@ -85,7 +85,6 @@ function CardInner({ service }) {
                     rounded-full
                     border border-white/30
                     bg-white/10
-                    backdrop-blur-md
                     shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(0,0,0,0.18)]
                     text-[clamp(7px,2vw,9px)] sm:text-[clamp(8px,1.2vw,11px)] lg:text-[clamp(9px,0.82vw,12px)] 3xl:text-[clamp(12px,2vw,14px)]
                   "
