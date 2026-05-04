@@ -16,27 +16,10 @@ export default function CustomCursor() {
       }
     };
 
-    const onEnter = () => cursorRef.current?.classList.add("cursor-hover");
-    const onLeave = () => cursorRef.current?.classList.remove("cursor-hover");
-
-    const addHoverListeners = () => {
-      document
-        .querySelectorAll("a, button, [role='button'], input, textarea, select, label, [tabindex]")
-        .forEach((el) => {
-          el.addEventListener("mouseenter", onEnter);
-          el.addEventListener("mouseleave", onLeave);
-        });
-    };
-
-    const observer = new MutationObserver(addHoverListeners);
-    observer.observe(document.body, { childList: true, subtree: true });
-
     window.addEventListener("mousemove", onMove);
-    addHoverListeners();
 
     return () => {
       window.removeEventListener("mousemove", onMove);
-      observer.disconnect();
     };
   }, []);
 
@@ -50,8 +33,8 @@ export default function CustomCursor() {
         position: "fixed",
         top: 0,
         left: 0,
-        width: "28px",
-        height: "28px",
+        width: "20px",
+        height: "20px",
         pointerEvents: "none",
         zIndex: 99999,
         willChange: "transform",

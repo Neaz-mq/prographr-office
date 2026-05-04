@@ -95,14 +95,6 @@
   .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 }
 
-/* ── Custom Cursor ── */
-#custom-cursor img {
-  transition: transform 0.2s ease;
-}
-#custom-cursor.cursor-hover img {
-  transform: scale(1.4);
-}
-
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-100%); }

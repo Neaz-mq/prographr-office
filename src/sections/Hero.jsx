@@ -79,10 +79,18 @@ export default function Hero() {
   const [hireExpanded, setHireExpanded] = useState(false);
 
   return (
-    <div
-      id="hero"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 bg-[#2A2A2C] font-['Inter',sans-serif] "
-    >
+   <div
+  id="hero"
+  className="relative w-full min-h-screen flex items-center justify-center overflow-hidden px-6 font-['Inter',sans-serif]"
+  style={{
+    backgroundImage: "url('https://res.cloudinary.com/dzi3u164c/image/upload/v1777868408/ChatGPT_Image_May_3_2026_04_13_25_PM_wyvvc7.webp')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+  {/* Dark overlay to keep text readable */}
+  <div className="absolute inset-0 bg-[#1a1a1c]/75 z-0" />
       {/* Google Fonts */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Inter:wght@400;500&display=swap');

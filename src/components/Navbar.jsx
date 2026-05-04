@@ -123,7 +123,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center z-[60] relative">
               <img
-                src="/logo.webp"
+                src="/green.svg"
                 alt="Prographr"
                 className="h-6 w-6 3xl:h-9 3xl:w-9 2xl:h-7 2xl:w-7 xl:h-6 xl:w-6 lg:h-7 lg:w-7 md:h-6 md:w-6 object-contain"
               />
