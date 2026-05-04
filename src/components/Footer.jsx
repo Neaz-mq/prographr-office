@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const SOCIAL_LINKS = [
-  { href: "https://www.facebook.com/prographr.page/", label: "Facebook" },
+  { href: "https://www.facebook.com/prographr.page/", label: "Facebook"  },
   { href: "https://id.pinterest.com/prographr/",      label: "Pinterest" },
   { href: "https://www.instagram.com/prographr",      label: "Instagram" },
   { href: "https://www.linkedin.com/company/prographr/", label: "LinkedIn" },
@@ -12,11 +12,11 @@ const SOCIAL_LINKS = [
 ];
 
 const SERVICE_LINKS = [
-  { label: "Graphic Design",    sectionId: "portfolio"   },
-  { label: "Brand Design",      sectionId: "portfolio"   },
-  { label: "Web Development",   sectionId: "technology"  },
-  { label: "Web Design",        sectionId: "portfolio"   },
-  { label: "PowerPoint Design", sectionId: "portfolio"   },
+  { label: "Graphic Design",    sectionId: "portfolio"  },
+  { label: "Brand Design",      sectionId: "portfolio"  },
+  { label: "Web Development",   sectionId: "technology" },
+  { label: "Web Design",        sectionId: "portfolio"  },
+  { label: "PowerPoint Design", sectionId: "portfolio"  },
 ];
 
 const INFORMATION_LINKS = [
@@ -25,6 +25,9 @@ const INFORMATION_LINKS = [
 ];
 
 const CURRENT_YEAR = new Date().getFullYear();
+
+// Shared Inter heading style — applied to every column heading
+const INTER_HEADING = { fontFamily: "'Inter', sans-serif" };
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -43,17 +46,23 @@ function lenisScrollTo(sectionId) {
   }
 }
 
-// ─── Reusable sub-components ──────────────────────────────────────────────────
+// ─── Sub-components ───────────────────────────────────────────────────────────
 
 /** Renders a single column of section-scroll buttons. */
 function NavColumn({ heading, links, onNavigate, linkClassName }) {
   return (
     <div className="flex flex-col">
-      <h2 className={`font-medium mb-10 ${heading.className}`}>{heading.label}</h2>
+      <h2
+        style={INTER_HEADING}
+        className={`font-medium mb-10 ${heading.className}`}
+      >
+        {heading.label}
+      </h2>
       <ul className="space-y-3" role="list">
         {links.map(({ label, sectionId }) => (
           <li key={label}>
             <button
+              type="button"
               onClick={() => onNavigate(sectionId)}
               className={`text-left bg-transparent border-none outline-none cursor-pointer transition-colors ${linkClassName}`}
             >
@@ -70,7 +79,12 @@ function NavColumn({ heading, links, onNavigate, linkClassName }) {
 function SocialColumn({ heading, linkClassName }) {
   return (
     <div className="flex flex-col">
-      <h2 className={`font-medium mb-10 ${heading.className}`}>{heading.label}</h2>
+      <h2
+        style={INTER_HEADING}
+        className={`font-medium mb-10 ${heading.className}`}
+      >
+        {heading.label}
+      </h2>
       <ul className="space-y-3" role="list">
         {SOCIAL_LINKS.map(({ href, label }) => (
           <li key={label}>
@@ -128,11 +142,17 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 gap-8 mb-8">
             <nav aria-label="Services navigation">
-              <h2 className="text-white font-medium text-sm mb-4">Services</h2>
+              <h2
+                style={INTER_HEADING}
+                className="text-white font-medium text-sm mb-4"
+              >
+                Services
+              </h2>
               <ul className="space-y-3" role="list">
                 {SERVICE_LINKS.map(({ label, sectionId }) => (
                   <li key={label}>
                     <button
+                      type="button"
                       onClick={() => scrollToSection(sectionId)}
                       className="text-[#888] text-xs hover:text-white transition-colors text-left bg-transparent border-none outline-none cursor-pointer"
                     >
@@ -144,11 +164,17 @@ export default function Footer() {
             </nav>
 
             <nav aria-label="Information navigation">
-              <h2 className="text-white font-medium text-sm mb-4">Information</h2>
+              <h2
+                style={INTER_HEADING}
+                className="text-white font-medium text-sm mb-4"
+              >
+                Information
+              </h2>
               <ul className="space-y-3" role="list">
                 {INFORMATION_LINKS.map(({ label, sectionId }) => (
                   <li key={label}>
                     <button
+                      type="button"
                       onClick={() => scrollToSection(sectionId)}
                       className="text-[#888] text-xs hover:text-white transition-colors text-left bg-transparent border-none outline-none cursor-pointer"
                     >
@@ -161,7 +187,12 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Social media links" className="mb-10">
-            <h2 className="text-white font-medium text-sm mb-4">Social</h2>
+            <h2
+              style={INTER_HEADING}
+              className="text-white font-medium text-sm mb-4"
+            >
+              Social
+            </h2>
             <ul className="space-y-3" role="list">
               {SOCIAL_LINKS.map(({ href, label }) => (
                 <li key={label}>
@@ -181,7 +212,10 @@ export default function Footer() {
         </div>
 
         {/* ── Desktop View ── */}
-        <div className="hidden md:flex items-start justify-between pb-5" aria-label="Footer navigation">
+        <div
+          className="hidden md:flex items-start justify-between pb-5"
+          aria-label="Footer navigation"
+        >
           <div className="flex-shrink-0">
             <img
               src="/green.svg"
@@ -196,7 +230,10 @@ export default function Footer() {
           <div className="flex gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 3xl:gap-64">
             <nav aria-label="Services navigation">
               <NavColumn
-                heading={{ label: "Services", className: "text-[#73AC56] text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl" }}
+                heading={{
+                  label: "Services",
+                  className: "text-[#73AC56] text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl",
+                }}
                 links={SERVICE_LINKS}
                 onNavigate={scrollToSection}
                 linkClassName="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-md hover:text-white leading-snug"
@@ -205,7 +242,10 @@ export default function Footer() {
 
             <nav aria-label="Information navigation">
               <NavColumn
-                heading={{ label: "Information", className: "text-[#73AC56] text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl" }}
+                heading={{
+                  label: "Information",
+                  className: "text-[#73AC56] text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl",
+                }}
                 links={INFORMATION_LINKS}
                 onNavigate={scrollToSection}
                 linkClassName="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-md hover:text-white"
@@ -214,7 +254,10 @@ export default function Footer() {
 
             <nav aria-label="Social media links">
               <SocialColumn
-                heading={{ label: "Social", className: "text-[#73AC56] text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl" }}
+                heading={{
+                  label: "Social",
+                  className: "text-[#73AC56] text-[13px] lg:text-base 2xl:text-lg 3xl:text-xl",
+                }}
                 linkClassName="text-[#888] text-[12px] lg:text-sm 2xl:text-sm 3xl:text-md hover:text-white"
               />
             </nav>
