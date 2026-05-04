@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, FreeMode } from "swiper/modules";
 import gsap from "gsap";
@@ -7,33 +7,32 @@ import "swiper/css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// ─── Constants ────────────────────────────────────────────────────────────────
+
 const PORTFOLIO_ITEMS = [
   {
     id: 1,
-    image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777454996/Print_-_design_dzx7tt.webp",
+    image: "https://res.cloudinary.com/dzi3u164c/image/upload/v1777454996/Print_-_design_dzx7tt.webp",
     tags: ["Flyer Design", "Rack Card", "App UI Design"],
   },
   {
     id: 2,
-    image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777455365/Restaurant_zd1dme.webp",
+    image: "https://res.cloudinary.com/dzi3u164c/image/upload/v1777455365/Restaurant_zd1dme.webp",
     tags: ["UI UX Design", "Web Design", "Prototyping"],
   },
   {
     id: 3,
-    image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/v1777798153/run_mbdgux.webp",
+    image: "https://res.cloudinary.com/dzi3u164c/image/upload/v1777798153/run_mbdgux.webp",
     tags: ["Brand Identity", "Brand Book", "Brand Manual"],
   },
   {
     id: 4,
-    image:
-      "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1776599891/Presentation-15_afhcci.jpg",
+    image: "https://res.cloudinary.com/dzi3u164c/image/upload/q_auto/f_auto/v1776599891/Presentation-15_afhcci.jpg",
     tags: ["Product Label", "Label Design", "Bottle Label"],
   },
 ];
 
+// Pre-computed once at module load — never recreated.
 const SLIDES = [
   ...PORTFOLIO_ITEMS,
   ...PORTFOLIO_ITEMS,
@@ -41,103 +40,134 @@ const SLIDES = [
   ...PORTFOLIO_ITEMS,
 ];
 
-function useDesktopSizes() {
-  const getSizes = () => {
-    if (typeof window === "undefined")
-      return { imgHeight: "500px", slideWidth: "600px" };
-    const w = window.innerWidth;
-    if (w >= 1920) return { imgHeight: "600px", slideWidth: "800px" };
-    if (w >= 1536) return { imgHeight: "400px", slideWidth: "600px" };
-    if (w >= 1280) return { imgHeight: "320px", slideWidth: "500px" };
-    return { imgHeight: "350px", slideWidth: "450px" };
-  };
+// Stable object — defined outside component so Swiper never gets a new prop reference.
+const SWIPER_PROPS = {
+  modules:        [Autoplay, FreeMode],
+  slidesPerView:  "auto",
+  spaceBetween:   30,
+  loop:           true,
+  speed:          8000,
+  allowTouchMove: true,
+  freeMode:       { enabled: true, momentum: false },
+  autoplay:       { delay: 0, disableOnInteraction: false },
+  className:      "seamless-swiper",
+};
 
-  const [sizes, setSizes] = useState(getSizes);
-  useEffect(() => {
-    const onResize = () => setSizes(getSizes());
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-  return sizes;
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+/** Returns desktop slide/image sizes for the current viewport width. */
+function getDesktopSizes(w) {
+  if (w >= 1920) return { imgHeight: "600px", slideWidth: "800px" };
+  if (w >= 1536) return { imgHeight: "400px", slideWidth: "600px" };
+  if (w >= 1280) return { imgHeight: "320px", slideWidth: "500px" };
+  return           { imgHeight: "350px", slideWidth: "450px" };
 }
 
-// ── NEW: reactive mobile image height ────────────────────────────────
-function useMobileImgHeight() {
-  const getHeight = () => {
-    if (typeof window === "undefined") return "260px";
-    const w = window.innerWidth;
-    if (w >= 768) return "380px";
-    if (w >= 640) return "350px";
-    return "260px";
-  };
-
-  const [height, setHeight] = useState(getHeight);
-  useEffect(() => {
-    const onResize = () => setHeight(getHeight());
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
-  return height;
+/** Returns the mobile image height for the current viewport width. */
+function getMobileImgHeight(w) {
+  if (w >= 768) return "380px";
+  if (w >= 640) return "350px";
+  return           "260px";
 }
 
-function PortfolioCard({ item, imgHeight }) {
+// ─── Hooks ────────────────────────────────────────────────────────────────────
+
+/**
+ * Single hook that owns ONE resize listener (rAF-throttled) and returns
+ * all layout values — replacing three separate listeners that were firing
+ * simultaneously on every resize event.
+ */
+function useResponsiveLayout() {
+  const getState = () => {
+    if (typeof window === "undefined") {
+      return { isDesktop: true, mobileImgHeight: "260px", ...getDesktopSizes(1280) };
+    }
+    const w = window.innerWidth;
+    return {
+      isDesktop:       w >= 1024,
+      mobileImgHeight: getMobileImgHeight(w),
+      ...getDesktopSizes(w),
+    };
+  };
+
+  const [layout, setLayout] = useState(getState);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (rafRef.current) return;
+      rafRef.current = requestAnimationFrame(() => {
+        setLayout(getState());
+        rafRef.current = null;
+      });
+    };
+
+    window.addEventListener("resize", handleResize, { passive: true });
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  return layout;
+}
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+/**
+ * Individual portfolio card — memoised so Swiper re-renders don't cause
+ * all visible cards to re-render when layout state changes.
+ */
+const PortfolioCard = memo(function PortfolioCard({ item, imgHeight }) {
   return (
-    <div className="h-full flex flex-col group select-none">
+    <article className="h-full flex flex-col group select-none">
       <div
         className="relative overflow-hidden shrink-0"
         style={{ height: imgHeight }}
       >
         <img
           src={item.image}
-          alt={item.tags[0]}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          alt={item.tags.join(", ")}
+          width={800}
+          height={600}
           loading="lazy"
+          decoding="async"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        {/* Gradient overlay — fades out on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:opacity-0 transition-opacity duration-500" />
+
+        {/* Gradient overlay — decorative */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent group-hover:opacity-0 transition-opacity duration-500"
+        />
 
         {/* Tags */}
-        <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 flex-wrap transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none">
+        <ul
+          aria-label="Project categories"
+          className="absolute bottom-4 left-4 right-4 flex items-center gap-2 flex-wrap transition-opacity duration-500 opacity-100 group-hover:opacity-0 pointer-events-none list-none m-0 p-0"
+        >
           {item.tags.map((tag) => (
-            <span
-              key={tag}
-              className="
-                text-[10px] 2xl:text-[13px]
-                text-white font-medium
-                whitespace-nowrap
-                px-3 py-1.5
-                rounded-full
-                border border-white/30
-                bg-white/10
-                backdrop-blur-md
-                shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(0,0,0,0.18)]
-              "
-            >
-              {tag}
-            </span>
+            <li key={tag}>
+              <span className="text-[10px] 2xl:text-[13px] text-white font-medium whitespace-nowrap px-3 py-1.5 rounded-full border border-white/30 bg-white/10 backdrop-blur-md shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_2px_8px_rgba(0,0,0,0.18)]">
+                {tag}
+              </span>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
-    </div>
+    </article>
   );
-}
+});
+
+// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function PortfolioSection() {
-  const headingRef = useRef(null);
+  const headingRef   = useRef(null);
   const containerRef = useRef(null);
-  const { imgHeight, slideWidth } = useDesktopSizes();
-  const mobileImgHeight = useMobileImgHeight(); // ← NEW
 
-  const [isDesktop, setIsDesktop] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth >= 1024 : true,
-  );
+  const { isDesktop, imgHeight, slideWidth, mobileImgHeight } = useResponsiveLayout();
 
-  useEffect(() => {
-    const check = () => setIsDesktop(window.innerWidth >= 1024);
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
-  }, []);
-
+  // Heading scroll animation
   useEffect(() => {
     const el = headingRef.current;
     if (!el) return;
@@ -146,45 +176,41 @@ export default function PortfolioSection() {
 
     const ctx = gsap.context(() => {
       gsap.to(el, {
-        y: 0,
-        opacity: 1,
+        y:        0,
+        opacity:  1,
         duration: 1.4,
-        ease: "expo.out",
+        ease:     "expo.out",
         scrollTrigger: {
           trigger: el,
-          start: "top 88%",
+          start:   "top 88%",
         },
         onComplete: () => gsap.set(el, { willChange: "auto" }),
       });
     }, containerRef);
+
     return () => ctx.revert();
   }, []);
 
-  const swiperProps = {
-    modules: [Autoplay, FreeMode],
-    slidesPerView: "auto",
-    spaceBetween: 30,
-    loop: true,
-    speed: 8000,
-    allowTouchMove: true,
-    freeMode: { enabled: true, momentum: false },
-    autoplay: { delay: 0, disableOnInteraction: false },
-    className: "seamless-swiper",
-  };
+  // The <style> injection is shared by both layouts — rendered once here
+  // to avoid duplication. Ideally move this rule to your global CSS file.
+  const linearSwiper = (
+    <style
+      dangerouslySetInnerHTML={{
+        __html: `.seamless-swiper .swiper-wrapper { transition-timing-function: linear !important; }`,
+      }}
+    />
+  );
 
-  // ── MOBILE ──────────────────────────────────────────────────────────
+  // ── Mobile ──
   if (!isDesktop) {
     return (
       <section
         id="portfolio"
         ref={containerRef}
+        aria-label="Our recent work"
         className="bg-white w-full overflow-hidden py-12"
       >
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `.seamless-swiper .swiper-wrapper { transition-timing-function: linear !important; }`,
-          }}
-        />
+        {linearSwiper}
 
         <div className="px-5 sm:px-8 mb-8 overflow-hidden">
           <div className="pb-2">
@@ -199,10 +225,9 @@ export default function PortfolioSection() {
           </div>
         </div>
 
-        <Swiper {...swiperProps}>
+        <Swiper {...SWIPER_PROPS}>
           {SLIDES.map((item, i) => (
             <SwiperSlide key={`m-${item.id}-${i}`} style={{ width: "80vw" }}>
-              {/* ↓ mobileImgHeight instead of hardcoded "260px" */}
               <PortfolioCard item={item} imgHeight={mobileImgHeight} />
             </SwiperSlide>
           ))}
@@ -211,18 +236,15 @@ export default function PortfolioSection() {
     );
   }
 
-  // ── DESKTOP ──────────────────────────────────────────────────────────
+  // ── Desktop ──
   return (
     <section
       id="portfolio"
       ref={containerRef}
+      aria-label="Our recent work"
       className="bg-white w-full overflow-hidden 3xl:py-32 2xl:py-24 py-16"
     >
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `.seamless-swiper .swiper-wrapper { transition-timing-function: linear !important; }`,
-        }}
-      />
+      {linearSwiper}
 
       {/* Heading */}
       <div className="w-full px-3 md:px-[2.5rem] 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mb-16">
@@ -239,12 +261,9 @@ export default function PortfolioSection() {
       </div>
 
       <div className="w-full">
-        <Swiper {...swiperProps}>
+        <Swiper {...SWIPER_PROPS}>
           {SLIDES.map((item, i) => (
-            <SwiperSlide
-              key={`d-${item.id}-${i}`}
-              style={{ width: slideWidth }}
-            >
+            <SwiperSlide key={`d-${item.id}-${i}`} style={{ width: slideWidth }}>
               <PortfolioCard item={item} imgHeight={imgHeight} />
             </SwiperSlide>
           ))}
