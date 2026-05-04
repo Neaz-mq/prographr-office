@@ -113,7 +113,7 @@ export default function Footer() {
         {/* ── Desktop View ── */}
         <div className="hidden md:flex items-start justify-between pb-5">
           <div className="flex-shrink-0">
-            <img src="/logo.webp" alt="Prographr" className="h-6 w-6 lg:h-7 lg:w-7 3xl:h-9 3xl:w-9 object-contain" />
+            <img src="/green.svg" alt="Prographr" className="h-6 w-6 lg:h-7 lg:w-7 3xl:h-9 3xl:w-9 object-contain" />
           </div>
 
           <div className="flex gap-16 lg:gap-20 xl:gap-24 2xl:gap-28 3xl:gap-64">
