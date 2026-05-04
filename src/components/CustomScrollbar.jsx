@@ -41,6 +41,17 @@ export default function CustomScrollbar() {
       thumb.style.transform = `translateY(${thumbTop}px)`;
     };
 
+    // ── Defer initial calculation until after first paint ──
+    let rafId = requestAnimationFrame(() => {
+      rafId = requestAnimationFrame(updateThumb); // double-rAF ensures layout is complete
+    });
+
+    // ── Re-calculate whenever the page body resizes (e.g. lazy-loaded content) ──
+    const resizeObserver = new ResizeObserver(() => {
+      requestAnimationFrame(updateThumb);
+    });
+    resizeObserver.observe(document.body);
+
     const onMouseDown = (e) => {
       isDragging.current = true;
       dragStartY.current = e.clientY;
@@ -84,9 +95,9 @@ export default function CustomScrollbar() {
     window.addEventListener("mousemove", onMouseMove);
     window.addEventListener("mouseup", onMouseUp);
 
-    updateThumb();
-
     return () => {
+      cancelAnimationFrame(rafId);
+      resizeObserver.disconnect();
       window.removeEventListener("scroll", updateThumb);
       thumb.removeEventListener("mousedown", onMouseDown);
       track.removeEventListener("click", onTrackClick);
@@ -107,7 +118,6 @@ export default function CustomScrollbar() {
         width: "10px",
         height: "100vh",
         zIndex: 9999,
-       
       }}
     >
       <div
