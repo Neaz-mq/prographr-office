@@ -55,7 +55,7 @@ const FaqItem = memo(function FaqItem({ faq, index, isOpen, onToggle }) {
         className="w-full flex items-center justify-between gap-6 py-5 text-left group"
       >
         <span
-          className={`text-base md:text-base lg:text-md xl:text-lg 2xl:text-lg 3xl:text-2xl tracking-[0.02em] font-medium transition-colors duration-300 ${
+          className={`text-base md:text-base lg:text-md xl:text-lg 2xl:text-lg 3xl:text-2xl tracking-[0.02em] font-normal transition-colors duration-300 ${
             isOpen ? "text-[#73AC56]" : "text-[#C1C1C1]"
           }`}
         >
