@@ -10,6 +10,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
 
+    <!-- ✅ Scroll Restoration Fix — must be first script in <head> -->
+    <script>
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+          if (window.lenis) {
+            window.lenis.scrollTo(0, { immediate: true });
+          }
+        }, 0);
+      });
+    </script>
+
+    <!-- Favicon -->
     <script>
       (function () {
         document.querySelectorAll("link[rel*='icon']").forEach((el) => el.remove());
