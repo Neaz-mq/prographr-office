@@ -99,7 +99,7 @@ const CardInner = memo(function CardInner({ service }) {
             {/* Tags */}
             <ul
               aria-label="Service categories"
-              className="flex flex-wrap gap-[10px] sm:gap-[14px] sm:justify-end mt-4 3xl:mt-0 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 list-none m-0 p-0"
+              className="flex flex-wrap gap-[10px] sm:gap-[14px] sm:justify-end mt-2 3xl:mt-0 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 list-none m-0 p-0"
             >
               {service.tags.map((tag) => (
                 <li key={tag}>
@@ -181,7 +181,7 @@ export default function TechnologySection() {
                 marginBottom: i < SERVICES.length - 1 ? `${CARD_GAP}px` : 0,
               }}
             >
-              <div className="relative w-full overflow-hidden rounded-none h-[260px] sm:h-[320px] md:h-[380px] lg:h-[55vh] xl:h-[65vh] 2xl:h-[70vh] 3xl:h-[72vh]">
+              <div className="relative w-full overflow-hidden rounded-none h-[260px] sm:h-[320px] md:h-[380px] lg:h-[60vh] xl:h-[68vh] 2xl:h-[72vh] 3xl:h-[72vh]">
                 <CardInner service={service} />
               </div>
             </article>
