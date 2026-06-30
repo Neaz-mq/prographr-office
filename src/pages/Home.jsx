@@ -9,5 +9,5 @@ import TechnologySection from "../sections/TechnologySection";
 import FAQ from "../sections/FAQ";
 import CTA from "../sections/CTA";
 export default function Home() {
-  return <><Hero/> <ClientLogos /> <AboutSection /> <PortfolioSection /> <Testimonials /> <ValueSection /> <TechnologySection /> <FAQ />  <CTA /></>;
+  return <><Hero/> <ClientLogos /> <AboutSection /> <PortfolioSection /> <Testimonials /> <ValueSection /> <TechnologySection />  <FAQ />  <CTA /></>;
 }

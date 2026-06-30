@@ -7,9 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 // ─── Constants ────────────────────────────────────────────────────────────────
 
 const JOBS = [
-  { title: "Senior Ui Ux Designer", meta: "Onsite / Full Time / Senior Level" },
-  { title: "Marketing Manager",     meta: "Onsite / Full Time / Senior Level" },
-  { title: "Senior Ui Ux Designer", meta: "Onsite / Full Time / Senior Level" },
+  { title: "UI/UX Designer", meta: "Onsite / Full Time / Mid Level" },
 ];
 
 const FAQS = [
@@ -100,12 +98,16 @@ const JobItem = memo(function JobItem({ job, index }) {
         </p>
         <p className="text-[#C1C1C1] text-xs md:text-md pt-2">{job.meta}</p>
       </div>
-      <button
-        type="button"
-        className="shrink-0 border border-white text-white 3xl:text-lg 2xl:text-base xl:text-[11px] lg:text-[11px] md:text-[11px] text-[10px] 3xl:px-5 3xl:py-1.5 2xl:px-5 2xl:py-1.5 xl:px-3 xl:py-1.5 lg:px-2.5 lg:py-1.5 md:px-2.5 md:py-1 px-2 py-1 hover:bg-white hover:text-[#0a0a0a] transition-colors duration-200 whitespace-nowrap"
+      <a
+        href={`https://mail.google.com/mail/?view=cm&to=contact.prographr@gmail.com&su=${encodeURIComponent(
+          `Application: ${job.title}`,
+        )}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="shrink-0 border border-white text-white 3xl:text-lg 2xl:text-base xl:text-[11px] lg:text-[11px] md:text-[11px] text-[10px] 3xl:px-5 3xl:py-1.5 2xl:px-5 2xl:py-1.5 xl:px-3 xl:py-1.5 lg:px-2.5 lg:py-1.5 md:px-2.5 md:py-1 px-2 py-1 hover:bg-white hover:text-[#0a0a0a] transition-colors duration-200 whitespace-nowrap inline-block text-center"
       >
         Apply Now
-      </button>
+      </a>
     </div>
   );
 });
@@ -115,9 +117,9 @@ const JobItem = memo(function JobItem({ job, index }) {
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
-  const containerRef      = useRef(null);
+  const containerRef = useRef(null);
   const careersHeadingRef = useRef(null);
-  const faqHeadingRef     = useRef(null);
+  const faqHeadingRef = useRef(null);
 
   // Toggle handler — stable reference, no inline arrow in JSX
   const handleToggle = useCallback((i) => {
@@ -133,14 +135,14 @@ export default function FAQ() {
           ref.current,
           { y: "110%", skewY: 7, opacity: 0 },
           {
-            y:        "0%",
-            skewY:    0,
-            opacity:  1,
+            y: "0%",
+            skewY: 0,
+            opacity: 1,
             duration: 1.5,
-            ease:     "expo.out",
+            ease: "expo.out",
             scrollTrigger: {
-              trigger:       ref.current,
-              start:         "top 95%",
+              trigger: ref.current,
+              start: "top 95%",
               toggleActions: "play none none none",
             },
           },
@@ -158,8 +160,8 @@ export default function FAQ() {
       aria-label="Careers and frequently asked questions"
       className="bg-[#2A2A2C]"
     >
-      {/* ── Careers (hidden) ───────────────────────────────────────── */}
-      <div className="md:px-10 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6 3xl:pt-64 2xl:pt-52 xl:pt-36 lg:pt-36 md:pt-36 pb-16 pt-28 border-b border-white/[8%] hidden">
+      {/* ── Careers */}
+      <div className="md:px-10 3xl:px-[26rem] 1920:px-[18rem] 2xl:px-[10rem] xl:px-[5rem] lg:px-[4rem] mx-auto px-6 3xl:pt-64 2xl:pt-52 xl:pt-36 lg:pt-36 md:pt-36 pb-16 pt-28 border-b border-white/[8%]">
         <div className="overflow-hidden">
           <h2
             ref={careersHeadingRef}
